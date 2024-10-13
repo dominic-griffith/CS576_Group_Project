@@ -1,6 +1,7 @@
 import os
 import requests
 from dotenv import load_dotenv
+from HomeAssistantController import HomeAssistantController
 
 # Load environment variables from .env file
 load_dotenv()
@@ -33,6 +34,14 @@ action_mapping = {
     "toggle": "light/toggle"
 }
 
+"""
+Process a string command and convert it to a action_url and entity_id tuple.
+Parameters:
+command (string): The entire string command from the messaging services.
+
+Returns:
+(string, string): The action_url and entity_id tuple
+"""
 def process_command(command):
     command = command.lower()
 
@@ -47,44 +56,27 @@ def process_command(command):
         if entity in command:
             target = entity
             break
-
-    if action and target:
-        # The endpoint for the service call (e.g., turning on a light)
-        service_call_url = f"{home_assistant_url}/api/services/{action_mapping[action]}"
-        entity_id = entity_mapping[target]
-
-        # Headers including the authorization token
-        headers = {
-            "Authorization": f"Bearer {access_token}",
-            "Content-Type": "application/json"
-        }
-
-        # Data to be sent with the service call (e.g., entity ID of the light)
-        data = {
-            "entity_id": entity_id
-        }
-
-        # Sending the POST request to the service call endpoint
-        response = requests.post(service_call_url, headers=headers, json=data)
-
-        # Check the response and return the result
-        if response.status_code == 200:
-            print(f"Success! The command '{action} {target}' was executed.")
-        else:
-            print(f"Failed to execute '{action} {target}':", response.status_code, response.text)
+    
+    if(action and target):
+        return (action_mapping[action], entity_mapping[target])
     else:
-        # Handle invalid or unrecognized commands
-        # Send to LLM
         if not action:
-            print("Unrecognized action.")
+            return "Unrecognized action."
         if not target:
-            print("Unrecognized target.")
+            return "Unrecognized target."
 
-
-
+ha_controller = HomeAssistantController(home_assistant_url, access_token)
 while True:
     user_command = input(f"Enter a command {{action}} {{target}} (or type 'exit' to quit): ")
     if user_command.lower() == "exit":
         print("Exiting...")
         break
-    process_command(user_command)
+
+    processed_cmd = process_command(user_command)
+    if(processed_cmd is str):
+        print(f"Failed to process command \"{user_command}\": {processed_cmd}")
+        break
+
+    print(f"Making request for action label {processed_cmd[0]} and entity id {processed_cmd[1]}")
+
+    ha_controller.make_request(processed_cmd[0], processed_cmd[1])
