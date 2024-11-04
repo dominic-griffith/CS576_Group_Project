@@ -5,7 +5,7 @@ import threading
 
 class MessageService(ABC):
     """
-    A MessageService can recieve messages and send messages. Received messages come from the user
+    A MessageService can receive messages and send messages. Received messages come from the user
       and sent messages are sent to the user.
     The message_queue should be used to read incoming messages.
     """
@@ -22,12 +22,12 @@ class MessageService(ABC):
     @abstractmethod
     def _recieve_message(self):
         """
-        Recieve a message from this message service. This shouldn't be called outside the
+        Receive a message from this message service. This shouldn't be called outside the
           MessageService class, it is called internally. Messages should be read from the
           message_queue.
 
         Returns:
-        string: The message recieved from the message service, will be added to the message queue
+        string: The message received from the message service, will be added to the message queue
         """
         pass
 

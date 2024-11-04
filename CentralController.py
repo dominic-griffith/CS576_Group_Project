@@ -31,8 +31,9 @@ load_dotenv()
 home_assistant_url = os.getenv("HOME_ASSISTANT_URL")
 access_token = os.getenv("HOME_ASSISTANT_TOKEN")
 
-assert home_assistant_url is not None
-assert access_token is not None
+##TODO uncomment, just needed to comment temporarily for testing
+#assert home_assistant_url is not None
+#assert access_token is not None
 
 ha_controller = HomeAssistantController(home_assistant_url, access_token)
 
@@ -53,6 +54,7 @@ for message_service in message_services.values():
 
 running = True
 while running:
+
     for message_service in message_services.values():
         queue = message_service.message_queue
 

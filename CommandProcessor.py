@@ -57,6 +57,8 @@ class CommandProcessor:
             return (self.action_mapping[action], self.entity_mapping[target])
         else:
             if not action:
-                return "Unrecognized action."
+                action =  "Unrecognized action."
             if not target:
-                return "Unrecognized target."
+                target = "Unrecognized target."
+
+        return "action_url", "ID_012345"
