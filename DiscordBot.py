@@ -1,5 +1,4 @@
-import os
-from dotenv import load_dotenv
+import asyncio
 
 #use messages to give info about status of devices
 from discord import Intents, Client, Message, Embed, File
@@ -9,12 +8,6 @@ from discord import Message, Embed, File
 
 ## project files
 from MessageService import MessageService
-from HomeAssistantController import HomeAssistantController
-from CommandProcessor import CommandProcessor
-from CommandLine import CommandLine
-
-## device keywords
-from DeviceKeywords import activation_keywords, deactivation_keywords, device_keywords
 
 #TODO make sure that discord is installed with the command:
 #   pip install discord.py
@@ -27,21 +20,19 @@ class DiscordBot(MessageService):
     TODO need to figure how this will scale. As of now, we only need 1 bot instance.
         It's important to think about how this will scale for many users, though
     """
-    def __init__(self, TOKEN):
+
+    def __init__(self, token):
+        super().__init__()
+
         print("Starting discord bot...")
-        #create a queue to handle multiple incoming messages
-        #should store (message, UID) tuples if multiple people are using the bot
-        #TODO remove if not needed
-        self.message_queue = []
 
-        # create an object to process the commands from incoming messages
-        print("\tcreating command processor...", end="\t\t")
-        self.commandProcessor = CommandProcessor()
-        print("created.")
+        self.token = token
+        # A dictionary of string messages and the userMessage object associated with it, we can use
+        #   this in send_message along with the "in_response_to" variable to access the incoming
+        #   userMessage object
+        self.message_metadata = {}
 
-        #create a new thread
-        #self.thread = threading.Thread(target=self.recieve_message_clock)
-
+    def run_service(self):
         # establish bot intents
         # bot should be able to read/send messages, but elevated privileges are not necessary
         print("\testablishing intents and client...", end="\t")
@@ -61,105 +52,53 @@ class DiscordBot(MessageService):
         self.bot.event(self.on_message)
         print("\tcreated.")
 
-        print("\tlogging in...")
-        self.run(TOKEN)
-
-    ## Start up bot
-    ## Bot must be running before any incoming messages can be processed
-    def run(self, TOKEN):
-        print("\t\testablishing connection...\t")
+        print("\tEstablishing connection...\t")
         try:
             #connect with token
-            self.bot.run(TOKEN)
+            self.bot.run(self.token)
         except:
             print("unable to establish connection. please try again later.")
+
+    def stop_service(self):
+        asyncio.run_coroutine_threadsafe(self.bot.close(), self.bot.loop)
 
     ## Login as the bot using the key
     # entry point for the bot; after logging in, bot can accept incoming messages
     async def on_ready(self):
         print(f"\nLogged in as {self.bot.user}.\n")
+        self.is_ready = True
 
     ## Respond to an incoming message, performing the corresponding operation
-    async def on_message(self, userMessage):
-        # avoid letting the discord bot send a message in response to itself
-        if userMessage.author == self.bot.user:
+    async def on_message(self, user_msg):
+
+        # We don't want to process the outgoing bot messages.
+        if user_msg.author == self.bot.user:
             return
-        # send message back to channel
-        await userMessage.channel.send(self.send_message(userMessage))
 
-    ### Abstract Class Functions
-    #TODO integrate with abstract class functions
-    def _recieve_message(self):
-        return
-
-    # process commands corresponding to the message sent by the user
-    # if command is incomprehensible, first contact the SLL and use that to get the command
-    def send_message(self, userMessage):
+        msg_content = user_msg.content
         # set user id for author of message. can be used to validate devices
-        userMessageAuthor = userMessage.author
-        # get contents of message. type is a string
-        userMessageContent = userMessage.content
+        msg_author = user_msg.author
+
+        # Store message metadata for when the program is ready to respond
+        self.message_metadata[msg_content] = user_msg
 
         # print message; not necessary, just used to illustrate
-        print(f"received message from @{userMessageAuthor}: {userMessageContent}")
+        print(f"Received discord message from @{msg_author}: {msg_content}")
 
-        # process the message to perform the corresponding content
-        # once the command is processed, return the response to on_message so the bot can respond
-        print("handling command...")
-        response = self.process_message(userMessageContent)
+        # Recieve the message as a message service
+        self.recieve_message(msg_content)
 
-        return response
+    ### Abstract Class Functions
+    # Not implementing await message since discord.py has the on_message event callback
+    def await_message(self):
+        return
 
+    # Send a message back to the discord chat
+    def send_message(self, message, in_response_to):
+        userMessage = self.message_metadata[in_response_to]
 
-    #perform preprocessing on the message and perform the corresponding command
-    def process_message(self, userMessageContent):
-        #use booleans to see if a message is unintelligible
-        found_noun = False
-        found_verb = False
+        if(userMessage is None):
+            print(f"ERROR: Failed to respond to message \"{in_response_to}\"")
+            return
 
-        ##TODO enhance command preprocessing - handle capitalization, keyword isolation, handle varying device types (e.g. lock vs light)
-        userMessageContentLower = userMessageContent.lower()
-        # by default, do not turn on devices
-        # this ensures users utilites are not being wasted, and doors are not unlocked by default
-        ##TODO can maybe pass flags to tell if a certain device is on
-        modifiedDeviceState = "TURN OFF"
-
-        ## TODO also need a way to detect location (eg. kitchen lights vs living room lights)
-        # get device being modified
-        # device is the noun we are looking for
-        deviceBeingModified = "device"
-
-        # search the incoming message for the device
-        for keyword in device_keywords:
-            if keyword in userMessageContentLower:
-                deviceBeingModified = keyword
-                found_noun = True
-                break
-
-        # TODO modify to handle different kinds of device (e.g. lock vs light)
-        # search the incoming message to see how the device is being modified
-        for keyword in activation_keywords:
-            if keyword in userMessageContentLower:
-                modifiedDeviceState = "TURN ON"
-                found_verb = True
-                break
-        # if keyword to turn on device is not found, check if something is being turned off
-        if not found_verb:
-            for keyword in activation_keywords:
-                if keyword in userMessageContentLower:
-                    modifiedDeviceState = "TURN OFF"
-                    found_verb = True
-                    break
-
-        #if we don't know how we're modifying the device, the message is unintelligible. contact the SLL
-        if not found_verb:
-            #contact_ssl(userMessageContentLower)
-            print("unsure how to modify device. passing to SLL...")
-
-        ##TODO add call to command processor
-        messageForCommandProcessor = modifiedDeviceState+" "+deviceBeingModified
-        print(f"\tpassing to command processor: {messageForCommandProcessor}...")
-        (action_url, entity_id) = self.commandProcessor.process_command(messageForCommandProcessor)
-        print("processed.")
-
-        return f"{modifiedDeviceState} your {deviceBeingModified} (ID: {entity_id})."
+        asyncio.run_coroutine_threadsafe(userMessage.channel.send(message), self.bot.loop)

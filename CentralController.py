@@ -1,84 +1,67 @@
-import os
+import signal
 from dotenv import load_dotenv
 
-from HomeAssistantController import HomeAssistantController
-from CommandProcessor import CommandProcessor
-from CommandLine import CommandLine
+from HomeAssistantController import load_home_assistant
+from MessageServiceManager import load_services, start_services, stop_services
+from CommandProcessor import CommandProcessor, CommandProcessingError
 
 # This file is the central controller for the project, this should run the entire program
-
-print()
-
-#region Message services
-message_services = {}
-
-# TODO: Load message services from configuration file
-
-if(len(message_services) == 0):
-    print("Failed to load any message services. Adding a command line.")
-    message_services["cmdline"] = CommandLine()
-
-print(f"Loaded {len(message_services)} message service(s).")
-#endregion
-
-#region HomeAssistant controller
-# TODO: Load homeassistant instance from configuration file/via message service
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Get the Home Assistant URL and Access Token from environment variables
-home_assistant_url = os.getenv("HOME_ASSISTANT_URL")
-access_token = os.getenv("HOME_ASSISTANT_TOKEN")
-
-##TODO uncomment, just needed to comment temporarily for testing
-#assert home_assistant_url is not None
-#assert access_token is not None
-
-ha_controller = HomeAssistantController(home_assistant_url, access_token)
-
-if(ha_controller is None):
-    print("Failed to load HomeAssistant controller. Exiting.")
-    exit()
-
-print("Loaded HomeAssistant instance.")
-#endregion
-
-print("Starting...")
-
+# Load core objects
+ha_controller = load_home_assistant()
+message_services = load_services()
 cmd_processor = CommandProcessor()
 
-# Start each MessageService
-for message_service in message_services.values():
-    message_service.thread.start()
+print("Starting...")
+start_services(message_services)
 
+tick_count = 0
 running = True
-while running:
 
-    for message_service in message_services.values():
-        queue = message_service.message_queue
+# Establish signal handler for Ctrl+C support
+def signal_handler(sig, frame):
+    global running
+    running = False
 
-        if(len(queue) == 0):
-            continue
+signal.signal(signal.SIGINT, signal_handler)
 
-        message_in = queue.pop(0).lower()
+try:
+    while running:
+        for message_service in message_services.values():
+            if(not message_service.is_ready and tick_count % 1000 == 0):
+                # print(f"Service {type(message_service)} is not ready")
+                continue
 
-        if message_in == "exit":
-            print("Exiting...")
-            running = False
-            break
+            queue = message_service.message_queue
+            # if(tick_count % 1000 == 0):
+            #     print(f"Service {type(message_service)} has queue len {len(queue)}")
 
-        processed_cmd = cmd_processor.process_command(message_in)
-        if(isinstance(processed_cmd, str)):
-            message_service.send_message(f"Failed to process command \"{message_in}\": {processed_cmd}")
-            continue
+            if(len(queue) == 0):
+                continue
 
-        print(f"Making request for action label {processed_cmd[0]} and entity id {processed_cmd[1]}")
+            message_in = queue.pop(0).lower()
 
-        ha_controller.make_request(processed_cmd[0], processed_cmd[1])
-        
-        message_service.send_message(f"Recieved \"{message_in}\"")
+            if message_in == "exit":
+                print("Exiting...")
+                running = False
+                break
 
-# Stop each MessageService
-for message_service in message_services.values():
-    message_service.thread.join()
+            try:
+                processed_cmd = cmd_processor.process_command(message_in)
+            except CommandProcessingError as e:
+                message_service.send_message(f"Failed to process command \"{message_in}\": {e.message}")
+                print(e)
+                continue
+
+            print(f"Making request for action label {processed_cmd[0]} and entity id {processed_cmd[1]}")
+
+            ha_controller.make_request(processed_cmd[0], processed_cmd[1])
+            
+            message_service.send_message(f"Recieved \"{message_in}\"", message_in)
+        tick_count += 1
+finally:
+    print("Shutting down...")
+    stop_services(message_services)

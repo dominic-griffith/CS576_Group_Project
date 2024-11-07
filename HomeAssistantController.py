@@ -1,4 +1,24 @@
+import os
 import requests
+
+def load_home_assistant():
+    # TODO: Load homeassistant instance from configuration file/via message service
+
+    # Get the Home Assistant URL and Access Token from environment variables
+    home_assistant_url = os.getenv("HOME_ASSISTANT_URL")
+    access_token = os.getenv("HOME_ASSISTANT_TOKEN")
+
+    assert home_assistant_url is not None
+    assert access_token is not None
+
+    ha_controller = HomeAssistantController(home_assistant_url, access_token)
+
+    if(ha_controller is None):
+        print("Failed to load HomeAssistant controller. Exiting.")
+        exit()
+
+    print("Loaded HomeAssistant instance.")
+    return ha_controller
 
 class HomeAssistantController:
 	"""

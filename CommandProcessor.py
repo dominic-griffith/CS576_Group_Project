@@ -57,8 +57,14 @@ class CommandProcessor:
             return (self.action_mapping[action], self.entity_mapping[target])
         else:
             if not action:
-                action =  "Unrecognized action."
+                raise CommandProcessingError("Unrecognized action.")
             if not target:
-                target = "Unrecognized target."
-
-        return "action_url", "ID_012345"
+                raise CommandProcessingError("Unrecognized target.")
+            
+class CommandProcessingError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+    
+    def __str__(self):
+        return f"Failed to process command: {self.message}"
