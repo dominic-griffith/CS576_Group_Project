@@ -1,0 +1,1151 @@
+input,output
+Remind me to stop the bathroom light.,stop.bathroom_light
+Don't open the news yet.,open.news
+Could you please pause the dryer?,pause.dryer
+Could you close my blinds?,close.blinds
+Turn off the freezer now.,turn_off.freezer
+Do you mind play the air conditioner?,play.air_conditioner
+"It's too cold, resume the shower.",resume.shower
+Don't close the sprinklers yet.,close.sprinklers
+"Play the news, please.",play.news
+Stop my blinds.,stop.blinds
+Let's resume the front door.,resume.front_door
+"Turn off the jazz music, please.",turn_off.jazz_music
+I need you to increase the speaker 5.,increase.speaker_5
+Can you increase the fan 1?,increase.fan_1
+Why don't we turn on the light 5?,turn_on.light_5
+"Hey, increase the washing machine.",increase.washing_machine
+Can you resume the window?,resume.window
+Don't forget to play the light.,play.light
+Please turn off some window 2.,turn_off.window_2
+"It's too cold, turn off the volume.",turn_off.volume
+Please increase the fan 3.,increase.fan_3
+"Play the door 2, please.",play.door_2
+Lock the oven when you can.,lock.oven
+Can we turn on the humidifier now?,turn_on.humidifier
+I need you to stop the light.,stop.light
+Let's unlock the thermostat 3.,unlock.thermostat_3
+Remind me to open the door 1.,open.door_1
+Would you mind pause the jazz music?,pause.jazz_music
+Don't forget to set the kitchen light.,set.kitchen_light
+I want to increase the TV.,increase.TV
+I need you to resume the light 5.,resume.light_5
+Would you mind stop the fan 3?,stop.fan_3
+Would you mind turn off the news?,turn_off.news
+"Pause the window 3, please.",pause.window_3
+I need you to stop the light 1.,stop.light_1
+"It's too cold, close the fan.",close.fan
+I would like to decrease the shower.,decrease.shower
+Please pause the living room light.,pause.living_room_light
+"It's too cold, resume the garage door.",resume.garage_door
+Do you mind play the TV?,play.TV
+"It's too cold, set the light.",set.light
+"Hey, close the kitchen light.",close.kitchen_light
+I forgot to turn on the door.,turn_on.door
+Could you lock the music for me?,lock.music
+"It's too hot, pause the fridge.",pause.fridge
+It's time to decrease the fridge.,decrease.fridge
+Don't forget to pause the fan 3.,pause.fan_3
+Time to open the dryer.,open.dryer
+I forgot to resume the kitchen light.,resume.kitchen_light
+Could you please decrease the fan 2?,decrease.fan_2
+"Open the light 1, please.",open.light_1
+I want to open the speaker 5.,open.speaker_5
+"Open the garage door, please.",open.garage_door
+Do you mind set the outdoor light?,set.outdoor_light
+I need you to play the door 5.,play.door_5
+I forgot to close the living room TV.,close.living_room_TV
+It's time to stop the fridge.,stop.fridge
+"Turn off the alarm, thanks.",turn_off.alarm
+I need you to close the door.,close.door
+"It's too cold, resume the fan 1.",resume.fan_1
+Lock the front door to 72 degrees.,lock.front_door
+Don't forget to lock the speaker 5.,lock.speaker_5
+Don't forget to decrease the light 4.,decrease.light_4
+Don't lock the washing machine yet.,lock.washing_machine
+Don't play the speaker 5 yet.,play.speaker_5
+Unlock the fridge to 72 degrees.,unlock.fridge
+Let's close the thermostat 3.,close.thermostat_3
+Do you mind increase the window 5?,increase.window_5
+"Increase the living room music, thanks.",increase.living_room_music
+Could you please turn on the thermostat 3?,turn_on.thermostat_3
+Would you mind open the microwave?,open.microwave
+Can we lock the playlist now?,lock.playlist
+I would like to pause the shower.,pause.shower
+Maybe close the fan 2 later.,close.fan_2
+"Hey, close the fan 1.",close.fan_1
+Stop the radio when you can.,stop.radio
+"It's too cold, increase the playlist.",increase.playlist
+"Resume the microwave, thanks.",resume.microwave
+Increase the outdoor light when you can.,increase.outdoor_light
+Don't resume the radio yet.,resume.radio
+It's time to decrease the door 1.,decrease.door_1
+Could you please stop the shower?,stop.shower
+Would you mind decrease the window 1?,decrease.window_1
+"It's too cold, turn on the thermostat 4.",turn_on.thermostat_4
+Let's turn on the bathroom light.,turn_on.bathroom_light
+Help me increase the speaker 3.,increase.speaker_3
+Could you lock my fan 4?,lock.fan_4
+Can we open the bedroom window now?,open.bedroom_window
+Do you mind close the door 2?,close.door_2
+Stop the front door now.,stop.front_door
+Please turn on the door 4.,turn_on.door_4
+Remind me to turn on the alarm.,turn_on.alarm
+Turn on the light 2 when you can.,turn_on.light_2
+Resume my garage light.,resume.garage_light
+Set the dishwasher right away.,set.dishwasher
+Lock the door 1 to 72 degrees.,lock.door_1
+Increase the oven now.,increase.oven
+I forgot to set the speaker 2.,set.speaker_2
+Can we increase the bathroom faucet now?,increase.bathroom_faucet
+Please close some fan 3.,close.fan_3
+I'd like to decrease some light 1.,decrease.light_1
+Stop the window 2 right away.,stop.window_2
+"It's too hot, stop the fan 4.",stop.fan_4
+Remind me to unlock the garden lights.,unlock.garden_lights
+"Open the humidifier, thanks.",open.humidifier
+Close the light 2 now.,close.light_2
+Decrease the window 5 to 72 degrees.,decrease.window_5
+Don't unlock the dryer yet.,unlock.dryer
+Do you mind open the shower?,open.shower
+Turn off the door 5 right away.,turn_off.door_5
+Time to increase the speaker 4.,increase.speaker_4
+Turn off the speaker 3 when you can.,turn_off.speaker_3
+"Turn off the living room TV, please.",turn_off.living_room_TV
+Unlock the fan 2 to 72 degrees.,unlock.fan_2
+I want to increase the light 3.,increase.light_3
+Could you unlock the bedroom window for me?,unlock.bedroom_window
+Help me lock the microwave.,lock.microwave
+Remind me to play the living room TV.,play.living_room_TV
+I forgot to decrease the door 3.,decrease.door_3
+Don't close the humidifier yet.,close.humidifier
+I would like to play the heater.,play.heater
+"Hey, turn off the speaker 2.",turn_off.speaker_2
+Would you mind decrease the speaker 3?,decrease.speaker_3
+Could you please unlock the blinds?,unlock.blinds
+Don't open the washing machine yet.,open.washing_machine
+Help me resume the living room music.,resume.living_room_music
+Turn on my fan 5.,turn_on.fan_5
+Let's play the oven.,play.oven
+"It's too hot, play the door.",play.door
+Can we play the coffee maker now?,play.coffee_maker
+Help me set the door 2.,set.door_2
+Remind me to increase the light.,increase.light
+Remind me to resume the blinds.,resume.blinds
+Remind me to close the thermostat.,close.thermostat
+Make sure to lock the light 4.,lock.light_4
+"Hey, increase the light 2.",increase.light_2
+I need you to stop the fan 5.,stop.fan_5
+"Play the thermostat 3, please.",play.thermostat_3
+Could you stop my heater?,stop.heater
+Maybe turn on the shower later.,turn_on.shower
+Do you mind turn on the speaker 5?,turn_on.speaker_5
+Could you turn on the outdoor light for me?,turn_on.outdoor_light
+I forgot to unlock the light 3.,unlock.light_3
+Don't decrease the kitchen faucet yet.,decrease.kitchen_faucet
+I want to resume the light 3.,resume.light_3
+I forgot to close the light 1.,close.light_1
+Don't forget to set the window 3.,set.window_3
+Let's unlock the window 4.,unlock.window_4
+Don't open the porch light yet.,open.porch_light
+I need you to resume the door 1.,resume.door_1
+Turn on my back door.,turn_on.back_door
+Please lock some thermostat 1.,lock.thermostat_1
+Remind me to resume the porch light.,resume.porch_light
+Please increase the alarm.,increase.alarm
+Let's pause the bathtub.,pause.bathtub
+It's time to open the bathroom light.,open.bathroom_light
+Please pause some window.,pause.window
+Maybe lock the light later.,lock.light
+"It's too cold, set the indoor light.",set.indoor_light
+I'd like to turn off some living room light.,turn_off.living_room_light
+Pause the front door right away.,pause.front_door
+"Turn off the speaker 1, please.",turn_off.speaker_1
+I want to increase the front door.,increase.front_door
+Close the back door when you can.,close.back_door
+I forgot to play the kitchen faucet.,play.kitchen_faucet
+Turn off the front door now.,turn_off.front_door
+Can you lock the window 3?,lock.window_3
+Time to stop the living room light.,stop.living_room_light
+Could you please set the speaker 5?,set.speaker_5
+Don't decrease the bedroom TV yet.,decrease.bedroom_TV
+"It's too cold, open the speaker 2.",open.speaker_2
+I need you to set the thermostat to 73 degrees.,set.thermostat.73
+Could you turn on the bathroom faucet for me?,turn_on.bathroom_faucet
+I want to increase the thermostat 4.,increase.thermostat.2
+Can we increase the light 4 now?,increase.light_4
+Would you mind set the light 4?,set.light_4
+Kindly turn off the thermostat 5.,turn_off.thermostat_5
+Unlock the thermostat 5 when you can.,unlock.thermostat_5
+Can you lock the bathroom light?,lock.bathroom_light
+Time to pause the speaker 1.,pause.speaker_1
+Do you mind close the window 5?,close.window_5
+I forgot to lock the indoor light.,lock.indoor_light
+Help me turn off the dehumidifier.,turn_off.dehumidifier
+I forgot to pause the bedroom TV.,pause.bedroom_TV
+Maybe turn off the garden lights later.,turn_off.garden_lights
+I would like to unlock the fountain.,unlock.fountain
+Why don't we set the thermostat to 80 degrees?,set.thermostat.80
+"Increase the hallway light, please.",increase.hallway_light
+Kindly set the security system.,set.security_system
+I'd like to turn off some thermostat 3.,turn_off.thermostat_3
+Can you pause the news?,pause.news
+Help me play the kitchen light.,play.kitchen_light
+Please stop some door 2.,stop.door_2
+Don't turn off the kitchen light yet.,turn_off.kitchen_light
+Maybe resume the garden lights later.,resume.garden_lights
+Make sure to resume the dryer.,resume.dryer
+Can we play the radio now?,play.radio
+I forgot to set the jazz music.,set.jazz_music
+Please set some heater.,set.heater
+"It's too cold, set the sprinklers.",set.sprinklers
+Increase the shower to 72 degrees.,increase.shower
+Let's resume the light 1.,resume.light_1
+Please decrease the music.,decrease.music
+"Decrease the dishwasher, please.",decrease.dishwasher
+"Hey, open the garage light.",open.garage_light
+Make sure to increase the microwave.,increase.microwave
+Can we turn off the bathroom light now?,turn_off.bathroom_light
+Make sure to turn off the oven.,turn_off.oven
+Maybe increase the fountain later.,increase.fountain
+Could you stop the door 1 for me?,stop.door_1
+It's time to unlock the indoor light.,unlock.indoor_light
+"It's too hot, close the window 4.",close.window_4
+I want to close the light 4.,close.light_4
+I want to stop the humidifier.,stop.humidifier
+Can we decrease the door 4 now?,decrease.door_4
+Could you turn off my light 2?,turn_off.light_2
+Could you please open the blinds?,open.blinds
+Don't pause the blinds yet.,pause.blinds
+It's time to turn off the humidifier.,turn_off.humidifier
+Would you mind decrease the news?,decrease.news
+Make sure to turn on the microwave.,turn_on.microwave
+Help me set the light 1.,set.light_1
+Turn off the window now.,turn_off.window
+Why don't we close the thermostat 2?,close.thermostat_2
+Can we unlock the freezer now?,unlock.freezer
+Help me resume the fan.,resume.fan
+Maybe resume the fan 4 later.,resume.fan_4
+"Stop the air conditioner, thanks.",stop.air_conditioner
+I forgot to increase the garden lights.,increase.garden_lights
+"Unlock the front door, thanks.",unlock.front_door
+Can we turn on the light 1 now?,turn_on.light_1
+"It's too hot, increase the sprinklers.",increase.sprinklers
+Can we open the window now?,open.window
+Set my speaker 3.,set.speaker_3
+"Unlock the coffee maker, please.",unlock.coffee_maker
+Why don't we turn off the fountain?,turn_off.fountain
+Maybe pause the hallway light later.,pause.hallway_light
+I would like to stop the washing machine.,stop.washing_machine
+"Hey, increase the door 5.",increase.door_5
+Why don't we turn off the garage light?,turn_off.garage_light
+I forgot to open the window 5.,open.window_5
+Unlock the thermostat now.,unlock.thermostat
+Maybe turn on the window 2 later.,turn_on.window_2
+I would like to stop the speaker 1.,stop.speaker_1
+Play the light 2 now.,play.light_2
+Remind me to decrease the fan 5.,decrease.fan_5
+Time to turn off the speaker 5.,turn_off.speaker_5
+"Decrease the coffee maker, please.",decrease.coffee_maker
+I forgot to play the curtains.,play.curtains
+"Lock the fountain, please.",lock.fountain
+"It's too cold, play the porch light.",play.porch_light
+"Lock the hallway light, thanks.",lock.hallway_light
+"Play the outdoor light, thanks.",play.outdoor_light
+Make sure to open the fan 3.,open.fan_3
+Decrease the washing machine now.,decrease.washing_machine
+Do you mind resume the door?,resume.door
+Maybe unlock the sprinklers later.,unlock.sprinklers
+I forgot to turn on the fan 2.,turn_on.fan_2
+Help me increase the freezer.,increase.freezer
+"It's too cold, close the bedroom light.",close.bedroom_light
+"Hey, set the door 4.",set.door_4
+"Hey, turn on the radio.",turn_on.radio
+Set the coffee maker to 72 degrees.,set.coffee_maker
+Let's resume the oven.,resume.oven
+"Lock the door 5, thanks.",lock.door_5
+I'd like to lock some humidifier.,lock.humidifier
+"Stop the fan, please.",stop.fan
+"Hey, decrease the security system.",decrease.security_system
+Could you turn off the thermostat 2 for me?,turn_off.thermostat_2
+Make sure to increase the porch light.,increase.porch_light
+Kindly open the dishwasher.,open.dishwasher
+I forgot to turn off the hallway light.,turn_off.hallway_light
+It's time to close the living room music.,close.living_room_music
+Don't forget to stop the thermostat 5.,stop.thermostat_5
+Why don't we turn on the window 4?,turn_on.window_4
+Please unlock some speaker 4.,unlock.speaker_4
+Do you mind play the window?,play.window
+Can you stop the fan 2?,stop.fan_2
+Help me unlock the kitchen faucet.,unlock.kitchen_faucet
+Please close some coffee maker.,close.coffee_maker
+Do you mind turn on the porch light?,turn_on.porch_light
+"Turn on the speaker 4, please.",turn_on.speaker_4
+Open the light 4 when you can.,open.light_4
+It's time to open the fountain.,open.fountain
+Could you please turn off the light 1?,turn_off.light_1
+Maybe turn off the door later.,turn_off.door
+Why don't we set the thermostat to 64 degrees?,set.thermostat.64
+Make sure to resume the door 3.,resume.door_3
+Pause the freezer when you can.,pause.freezer
+Please open the thermostat 5.,open.thermostat_5
+Make sure to resume the window 4.,resume.window_4
+Please turn on some fan 4.,turn_on.fan_4
+"Hey, stop the dehumidifier.",stop.dehumidifier
+Please increase the music.,increase.music
+Can you close the music?,close.music
+Pause the door 5 now.,pause.door_5
+Kindly pause the bedroom window.,pause.bedroom_window
+Help me resume the washing machine.,resume.washing_machine
+Don't forget to turn on the front door.,turn_on.front_door
+"It's too cold, set the light 5.",set.light_5
+Can we pause the sprinklers now?,pause.sprinklers
+Can we resume the playlist now?,resume.playlist
+I would like to close the bedroom TV.,close.bedroom_TV
+Increase the dryer to 72 degrees.,increase.dryer
+Can we lock the light 1 now?,lock.light_1
+Don't forget to pause the light 3.,pause.light_3
+"Unlock the security system, please.",unlock.security_system
+Lock the living room TV when you can.,lock.living_room_TV
+I'd like to increase some blinds.,increase.blinds
+Play my bathroom faucet.,play.bathroom_faucet
+I need you to play the alarm.,play.alarm
+I need you to resume the light 4.,resume.light_4
+I would like to set the garage door.,set.garage_door
+Help me close the volume.,close.volume
+Time to play the garden lights.,play.garden_lights
+Please increase some thermostat 3.,increase.thermostat.3
+Kindly unlock the hallway light.,unlock.hallway_light
+Could you lock the living room music for me?,lock.living_room_music
+Could you open my kitchen light?,open.kitchen_light
+Remind me to set the dryer.,set.dryer
+Lock the kitchen faucet right away.,lock.kitchen_faucet
+Please close the bathtub.,close.bathtub
+I forgot to decrease the fountain.,decrease.fountain
+Please stop the light 4.,stop.light_4
+"It's too cold, close the window 3.",close.window_3
+I'd like to turn off some shower.,turn_off.shower
+Do you mind unlock the bathtub?,unlock.bathtub
+I'd like to resume some humidifier.,resume.humidifier
+Can you close the oven?,close.oven
+Help me lock the thermostat 2.,lock.thermostat_2
+Maybe turn on the garden lights later.,turn_on.garden_lights
+I need you to turn off the microwave.,turn_off.microwave
+Please turn off some coffee maker.,turn_off.coffee_maker
+Turn on the door 5 now.,turn_on.door_5
+Could you please play the dishwasher?,play.dishwasher
+Why don't we lock the door 4?,lock.door_4
+Can we turn off the heater now?,turn_off.heater
+Increase the living room TV when you can.,increase.living_room_TV
+"It's too hot, increase the bathtub.",increase.bathtub
+I'd like to resume some living room TV.,resume.living_room_TV
+I forgot to open the alarm.,open.alarm
+I forgot to stop the fountain.,stop.fountain
+"Hey, decrease the door 2.",decrease.door_2
+Could you decrease the garage light for me?,decrease.garage_light
+Maybe stop the alarm later.,stop.alarm
+Time to resume the dehumidifier.,resume.dehumidifier
+Do you mind open the living room TV?,open.living_room_TV
+Maybe increase the thermostat later.,increase.thermostat.5
+"Turn off the blinds, thanks.",turn_off.blinds
+Maybe decrease the sprinklers later.,decrease.sprinklers
+Could you turn off my curtains?,turn_off.curtains
+Could you lock the window for me?,lock.window
+Decrease my light.,decrease.light
+Why don't we open the hallway light?,open.hallway_light
+Time to close the freezer.,close.freezer
+Would you mind turn on the window 5?,turn_on.window_5
+"Open the fan 4, please.",open.fan_4
+Set the volume when you can.,set.volume
+Let's lock the light 3.,lock.light_3
+"It's too cold, resume the speaker 4.",resume.speaker_4
+Stop the thermostat 1 now.,stop.thermostat_1
+Set the shower right away.,set.shower
+I'd like to pause some garden lights.,pause.garden_lights
+"Unlock the music, thanks.",unlock.music
+Increase my living room light.,increase.living_room_light
+Decrease the blinds when you can.,decrease.blinds
+I want to close the outdoor light.,close.outdoor_light
+I'd like to turn on some light 3.,turn_on.light_3
+"Hey, unlock the garage light.",unlock.garage_light
+"It's too hot, open the thermostat 2.",open.thermostat_2
+Turn off the fridge to 72 degrees.,turn_off.fridge
+I need you to stop the light 2.,stop.light_2
+Kindly unlock the washing machine.,unlock.washing_machine
+"Open the radio, please.",open.radio
+Open the door 4 now.,open.door_4
+Decrease the indoor light to 72 degrees.,decrease.indoor_light
+Please pause the light 4.,pause.light_4
+Help me pause the dishwasher.,pause.dishwasher
+Do you mind resume the bathroom light?,resume.bathroom_light
+Increase the door 1 when you can.,increase.door_1
+Stop the door to 72 degrees.,stop.door
+Time to set the thermostat to 63 degrees.,set.thermostat.63
+Why don't we set the bathtub?,set.bathtub
+I forgot to increase the news.,increase.news
+Don't lock the dryer yet.,lock.dryer
+Decrease the heater right away.,decrease.heater
+I'd like to play some speaker 4.,play.speaker_4
+Why don't we unlock the shower?,unlock.shower
+Can we turn off the outdoor light now?,turn_off.outdoor_light
+Don't decrease the freezer yet.,decrease.freezer
+Don't play the playlist yet.,play.playlist
+I forgot to turn off the thermostat 1.,turn_off.thermostat_1
+Don't forget to increase the speaker 2.,increase.speaker_2
+Help me set the fountain.,set.fountain
+Make sure to increase the radio.,increase.radio
+I'd like to resume some fan 2.,resume.fan_2
+Could you turn on my thermostat 1?,turn_on.thermostat_1
+I want to unlock the playlist.,unlock.playlist
+Don't forget to close the bathroom faucet.,close.bathroom_faucet
+Can we turn on the speaker 1 now?,turn_on.speaker_1
+Don't set the freezer yet.,set.freezer
+Why don't we stop the door 4?,stop.door_4
+Resume the bathtub when you can.,resume.bathtub
+"Close the speaker 5, thanks.",close.speaker_5
+"It's too hot, set the TV.",set.TV
+Could you turn on the living room TV for me?,turn_on.living_room_TV
+Would you mind pause the coffee maker?,pause.coffee_maker
+Can you stop the fan 1?,stop.fan_1
+Maybe turn on the fountain later.,turn_on.fountain
+Why don't we decrease the curtains?,decrease.curtains
+Could you close my curtains?,close.curtains
+Let's increase the thermostat 5.,increase.thermostat.1
+Remind me to turn off the playlist.,turn_off.playlist
+Remind me to play the sprinklers.,play.sprinklers
+Can you pause the dehumidifier?,pause.dehumidifier
+Let's close the garden lights.,close.garden_lights
+"Hey, stop the door 5.",stop.door_5
+I would like to turn on the dishwasher.,turn_on.dishwasher
+Would you mind open the bedroom light?,open.bedroom_light
+"Resume the indoor light, please.",resume.indoor_light
+Unlock my fan.,unlock.fan
+Please set the light 3.,set.light_3
+Don't forget to open the door.,open.door
+Please lock some outdoor light.,lock.outdoor_light
+Don't unlock the speaker 2 yet.,unlock.speaker_2
+"Increase the garage light, please.",increase.garage_light
+Please decrease the light 3.,decrease.light_3
+"It's too hot, decrease the dryer.",decrease.dryer
+Can we lock the radio now?,lock.radio
+I'd like to close some bedroom window.,close.bedroom_window
+Why don't we increase the kitchen light?,increase.kitchen_light
+I need you to stop the thermostat 4.,stop.thermostat_4
+Kindly stop the window 1.,stop.window_1
+Can you close the thermostat 4?,close.thermostat_4
+Make sure to turn off the light 4.,turn_off.light_4
+Maybe decrease the fan 1 later.,decrease.fan_1
+Would you mind unlock the light 5?,unlock.light_5
+Don't increase the volume yet.,increase.volume
+Don't forget to decrease the speaker 1.,decrease.speaker_1
+Could you turn on my news?,turn_on.news
+I forgot to play the volume.,play.volume
+"Unlock the living room music, please.",unlock.living_room_music
+Maybe close the light 5 later.,close.light_5
+Let's stop the window 4.,stop.window_4
+Would you mind close the news?,close.news
+Please close the microwave.,close.microwave
+Could you please decrease the alarm?,decrease.alarm
+Why don't we set the fridge?,set.fridge
+Play the classical music in the bedroom right away.,play.music.classical.in_the_bedroom
+Maybe increase the curtains later.,increase.curtains
+I want to set the door 5.,set.door_5
+Set the humidifier when you can.,set.humidifier
+I need you to open the window 4.,open.window_4
+Resume the jazz music to 72 degrees.,resume.jazz_music
+Do you mind lock the coffee maker?,lock.coffee_maker
+Decrease the front door when you can.,decrease.front_door
+Increase the coffee maker right away.,increase.coffee_maker
+Stop the window to 72 degrees.,stop.window
+"Decrease the thermostat 4, please.",decrease.thermostat.2
+Decrease my speaker 4.,decrease.speaker_4
+Resume the speaker 2 to 72 degrees.,resume.speaker_2
+I forgot to increase the door 2.,increase.door_2
+Could you pause my playlist?,pause.playlist
+Close the porch light to 72 degrees.,close.porch_light
+Why don't we play the bedroom TV?,play.bedroom_TV
+Resume the thermostat when you can.,resume.thermostat
+I'd like to unlock some kitchen light.,unlock.kitchen_light
+Time to turn on the window 1.,turn_on.window_1
+Turn on the speaker 2 to 72 degrees.,turn_on.speaker_2
+"It's too hot, close the fan 4.",close.fan_4
+Unlock the fan 5 to 72 degrees.,unlock.fan_5
+Lock the jazz music now.,lock.jazz_music
+"Open the music, thanks.",open.music
+Remind me to stop the freezer.,stop.freezer
+Turn off my TV.,turn_off.TV
+Kindly close the indoor light.,close.indoor_light
+Set the window 4 right away.,set.window_4
+Could you turn off the bathroom faucet for me?,turn_off.bathroom_faucet
+Can we lock the bedroom window now?,lock.bedroom_window
+Can we turn on the garage door now?,turn_on.garage_door
+Let's set the garage light.,set.garage_light
+Kindly lock the TV.,lock.TV
+I would like to close the window 2.,close.window_2
+Can you resume the bedroom TV?,resume.bedroom_TV
+Time to turn off the indoor light.,turn_off.indoor_light
+Can we turn on the thermostat 2 now?,turn_on.thermostat_2
+Time to pause the fan 5.,pause.fan_5
+Please turn off some living room music.,turn_off.living_room_music
+Let's play the shower.,play.shower
+Don't forget to increase the humidifier.,increase.humidifier
+"It's too cold, increase the jazz music.",increase.jazz_music
+Remind me to pause the thermostat 2.,pause.thermostat_2
+"It's too cold, resume the music.",resume.music
+Kindly pause the door 3.,pause.door_3
+"It's too hot, open the fan 1.",open.fan_1
+I need you to play the window 2.,play.window_2
+Close the bathroom light when you can.,close.bathroom_light
+Could you please stop the oven?,stop.oven
+Can you pause the humidifier?,pause.humidifier
+Do you mind turn off the light 3?,turn_off.light_3
+Set the news right away.,set.news
+"Hey, set the living room TV.",set.living_room_TV
+"It's too cold, open the thermostat 4.",open.thermostat_4
+Make sure to resume the thermostat 2.,resume.thermostat_2
+It's time to decrease the dehumidifier.,decrease.dehumidifier
+It's time to lock the light 2.,lock.light_2
+Close the hallway light to 72 degrees.,close.hallway_light
+Unlock the alarm to 72 degrees.,unlock.alarm
+Make sure to lock the dishwasher.,lock.dishwasher
+Remind me to pause the garage door.,pause.garage_door
+"It's too hot, resume the living room light.",resume.living_room_light
+I need you to decrease the microwave.,decrease.microwave
+I'd like to lock some window 4.,lock.window_4
+Kindly turn off the light.,turn_off.light
+Resume the air conditioner when you can.,resume.air_conditioner
+Help me close the window.,close.window
+Why don't we open the door 3?,open.door_3
+I would like to decrease the window 3.,decrease.window_3
+Play the hallway light to 72 degrees.,play.hallway_light
+I would like to increase the light 1.,increase.light_1
+Why don't we stop the coffee maker?,stop.coffee_maker
+"Lock the thermostat 5, thanks.",lock.thermostat_5
+Why don't we close the jazz music?,close.jazz_music
+I need you to open the fan 5.,open.fan_5
+Can you set the fan 2?,set.fan_2
+"Turn on the TV, thanks.",turn_on.TV
+Kindly pause the speaker 3.,pause.speaker_3
+Would you mind turn on the fan 3?,turn_on.fan_3
+Resume the fan 5 when you can.,resume.fan_5
+Turn off the fan right away.,turn_off.fan
+Please increase the indoor light.,increase.indoor_light
+Can you unlock the light 4?,unlock.light_4
+I need you to resume the thermostat 3.,resume.thermostat_3
+"Hey, stop the speaker 2.",stop.speaker_2
+I want to decrease the playlist.,decrease.playlist
+I would like to increase the kitchen faucet.,increase.kitchen_faucet
+Please pause some radio.,pause.radio
+"It's too hot, pause the window 5.",pause.window_5
+Don't forget to lock the garage light.,lock.garage_light
+Lock the air conditioner when you can.,lock.air_conditioner
+Don't forget to turn on the bedroom window.,turn_on.bedroom_window
+Would you mind pause the door 1?,pause.door_1
+Could you increase the door 3 for me?,increase.door_3
+Do you mind resume the kitchen faucet?,resume.kitchen_faucet
+I need you to turn on the dryer.,turn_on.dryer
+Set the speaker 4 when you can.,set.speaker_4
+"It's too cold, open the thermostat 1.",open.thermostat_1
+"Turn off the door 2, thanks.",turn_off.door_2
+Set my window.,set.window
+Could you turn on the washing machine for me?,turn_on.washing_machine
+Help me lock the garage door.,lock.garage_door
+Lock the volume now.,lock.volume
+It's time to lock the freezer.,lock.freezer
+Resume the door 2 now.,resume.door_2
+Unlock the heater when you can.,unlock.heater
+I would like to resume the window 2.,resume.window_2
+Help me lock the living room light.,lock.living_room_light
+Stop the living room music to 72 degrees.,stop.living_room_music
+Maybe increase the window 3 later.,increase.window_3
+Make sure to unlock the window.,unlock.window
+Time to stop the playlist.,stop.playlist
+Don't forget to turn off the security system.,turn_off.security_system
+I would like to lock the speaker 3.,lock.speaker_3
+Can we turn off the air conditioner now?,turn_off.air_conditioner
+Maybe close the light 3 later.,close.light_3
+Would you mind stop the speaker 5?,stop.speaker_5
+Can you turn on the oven?,turn_on.oven
+Can you play the thermostat 1?,play.thermostat_1
+Pause the door 2 when you can.,pause.door_2
+Can you increase the bedroom window?,increase.bedroom_window
+It's time to close the living room light.,close.living_room_light
+Let's lock the window 5.,lock.window_5
+Please stop the dishwasher.,stop.dishwasher
+It's time to stop the microwave.,stop.microwave
+I want to turn on the jazz music.,turn_on.jazz_music
+"Increase the air conditioner, thanks.",increase.air_conditioner
+Could you please set the window 2?,set.window_2
+Turn off the window 5 when you can.,turn_off.window_5
+Please turn on some fan 1.,turn_on.fan_1
+Do you mind increase the back door?,increase.back_door
+Do you mind turn on the kitchen light?,turn_on.kitchen_light
+Set my playlist.,set.playlist
+Why don't we resume the outdoor light?,resume.outdoor_light
+Kindly open the thermostat 3.,open.thermostat_3
+Resume the news right away.,resume.news
+Set the microwave right away.,set.microwave
+It's time to unlock the living room light.,unlock.living_room_light
+Please turn off the dishwasher.,turn_off.dishwasher
+Make sure to decrease the light 2.,decrease.light_2
+Time to turn off the door 1.,turn_off.door_1
+Unlock the news when you can.,unlock.news
+I'd like to play some front door.,play.front_door
+I need you to increase the window 4.,increase.window_4
+I would like to lock the thermostat 3.,lock.thermostat_3
+I forgot to open the speaker 4.,open.speaker_4
+Please close some TV.,close.TV
+Kindly resume the security system.,resume.security_system
+Can you turn on the blinds?,turn_on.blinds
+I forgot to turn on the indoor light.,turn_on.indoor_light
+Decrease the volume to 72 degrees.,decrease.volume
+I want to increase the security system.,increase.security_system
+Please open the fridge.,open.fridge
+Why don't we play the back door?,play.back_door
+Maybe decrease the fan 4 later.,decrease.fan_4
+"It's too cold, play the fan 4.",play.fan_4
+"It's too cold, unlock the bedroom light.",unlock.bedroom_light
+Please turn off the fan 1.,turn_off.fan_1
+Do you mind turn on the window?,turn_on.window
+Make sure to stop the music.,stop.music
+Don't forget to open the door 5.,open.door_5
+Please lock some bedroom light.,lock.bedroom_light
+Could you close my air conditioner?,close.air_conditioner
+Would you mind close the alarm?,close.alarm
+Would you mind increase the dishwasher?,increase.dishwasher
+Let's turn on the freezer.,turn_on.freezer
+Time to stop the thermostat 2.,stop.thermostat_2
+"Hey, play the fridge.",play.fridge
+"Hey, pause the speaker 5.",pause.speaker_5
+Make sure to decrease the speaker 5.,decrease.speaker_5
+Set the thermostat to 68 degrees to 72 degrees.,set.thermostat.68
+Can we pause the speaker 2 now?,pause.speaker_2
+"It's too hot, set the hallway light.",set.hallway_light
+"Pause the garage light, please.",pause.garage_light
+It's time to pause the door.,pause.door
+Don't open the jazz music yet.,open.jazz_music
+Play the bedroom window to 72 degrees.,play.bedroom_window
+Could you please set the garden lights?,set.garden_lights
+Can we decrease the thermostat 1 now?,decrease.thermostat.1
+Resume the window 1 right away.,resume.window_1
+Don't set the door 3 yet.,set.door_3
+"Turn off the window 1, please.",turn_off.window_1
+Remind me to stop the thermostat.,stop.thermostat
+Stop the door 3 now.,stop.door_3
+Please turn on the bedroom TV.,turn_on.bedroom_TV
+Lock the fan now.,lock.fan
+Help me close the thermostat 1.,close.thermostat_1
+Would you mind turn on the door 1?,turn_on.door_1
+Turn off the music to 72 degrees.,turn_off.music
+Please resume the light 2.,resume.light_2
+Kindly increase the window.,increase.window
+Open the heater to 72 degrees.,open.heater
+I forgot to play the blues music in the kitchen.,play.music.blues.in_the_kitchen
+Would you mind turn on the fridge?,turn_on.fridge
+Don't forget to unlock the door 2.,unlock.door_2
+Please play the microwave.,play.microwave
+I want to turn on the thermostat.,turn_on.thermostat
+Can you turn on the security system?,turn_on.security_system
+Can you decrease the back door?,decrease.back_door
+I'd like to play some window 5.,play.window_5
+Make sure to increase the fan 4.,increase.fan_4
+Don't forget to turn off the thermostat.,turn_off.thermostat
+I'd like to turn off some door 4.,turn_off.door_4
+Let's open the freezer.,open.freezer
+Make sure to resume the fridge.,resume.fridge
+Do you mind turn on the air conditioner?,turn_on.air_conditioner
+Help me unlock the TV.,unlock.TV
+I would like to pause the fan 1.,pause.fan_1
+Please unlock some bathroom light.,unlock.bathroom_light
+Time to turn off the fan 2.,turn_off.fan_2
+"Lock the sprinklers, please.",lock.sprinklers
+Turn on the bathtub when you can.,turn_on.bathtub
+"Open the front door, thanks.",open.front_door
+Why don't we decrease the speaker 2?,decrease.speaker_2
+Why don't we lock the window 1?,lock.window_1
+Help me lock the security system.,lock.security_system
+Let's resume the TV.,resume.TV
+Could you please set the window 1?,set.window_1
+Could you unlock the volume for me?,unlock.volume
+Kindly turn off the back door.,turn_off.back_door
+Time to resume the bedroom light.,resume.bedroom_light
+"Unlock the speaker 3, please.",unlock.speaker_3
+"It's too hot, turn off the porch light.",turn_off.porch_light
+Set the oven when you can.,set.oven
+It's time to increase the dehumidifier.,increase.dehumidifier
+Please decrease some fan 3.,decrease.fan_3
+"It's too hot, turn off the radio.",turn_off.radio
+Can you close the door 1?,close.door_1
+Please close the garage light.,close.garage_light
+Help me unlock the door.,unlock.door
+Please resume the sprinklers.,resume.sprinklers
+Kindly set the music.,set.music
+Do you mind resume the coffee maker?,resume.coffee_maker
+I would like to decrease the bathroom faucet.,decrease.bathroom_faucet
+I forgot to resume the door 4.,resume.door_4
+Decrease the garden lights to 72 degrees.,decrease.garden_lights
+Lock the dehumidifier right away.,lock.dehumidifier
+Make sure to pause the kitchen faucet.,pause.kitchen_faucet
+Don't open the dehumidifier yet.,open.dehumidifier
+Time to decrease the light 5.,decrease.light_5
+It's time to unlock the window 3.,unlock.window_3
+Can we stop the indoor light now?,stop.indoor_light
+Don't open the window 3 yet.,open.window_3
+I'd like to stop some speaker 3.,stop.speaker_3
+"It's too hot, decrease the bathroom light.",decrease.bathroom_light
+Help me set the curtains.,set.curtains
+"Open the speaker 3, please.",open.speaker_3
+I need you to unlock the humidifier.,unlock.humidifier
+I'd like to open some curtains.,open.curtains
+Maybe decrease the TV later.,decrease.TV
+I'd like to resume some volume.,resume.volume
+Don't forget to pause the bathroom faucet.,pause.bathroom_faucet
+Turn on the light right away.,turn_on.light
+Please unlock the jazz music.,unlock.jazz_music
+Could you please open the oven?,open.oven
+Please pause some indoor light.,pause.indoor_light
+Don't set the bedroom light yet.,set.bedroom_light
+Do you mind play the humidifier?,play.humidifier
+Remind me to stop the garden lights.,stop.garden_lights
+Could you set my fan 1?,set.fan_1
+Maybe set the radio later.,set.radio
+Why don't we pause the curtains?,pause.curtains
+Kindly turn on the thermostat 5.,turn_on.thermostat_5
+Decrease the humidifier right away.,decrease.humidifier
+Make sure to play the thermostat.,play.thermostat
+Don't pause the door 4 yet.,pause.door_4
+"It's too hot, pause the living room music.",pause.living_room_music
+"It's too hot, play the window 3.",play.window_3
+Why don't we turn off the bedroom light?,turn_off.bedroom_light
+"It's too cold, stop the news.",stop.news
+Do you mind open the bedroom TV?,open.bedroom_TV
+Play the door 3 when you can.,play.door_3
+"It's too hot, pause the washing machine.",pause.washing_machine
+"Unlock the window 5, thanks.",unlock.window_5
+Could you unlock my bathroom faucet?,unlock.bathroom_faucet
+Can you close the fan 5?,close.fan_5
+Make sure to decrease the kitchen light.,decrease.kitchen_light
+I want to open the light.,open.light
+Do you mind lock the news?,lock.news
+Play my speaker 2.,play.speaker_2
+"Play the living room light, please.",play.living_room_light
+Remind me to unlock the thermostat 1.,unlock.thermostat_1
+Would you mind decrease the bathtub?,decrease.bathtub
+Can you open the bathtub?,open.bathtub
+I would like to decrease the window.,decrease.window
+Please play some fan 5.,play.fan_5
+Don't turn off the dryer yet.,turn_off.dryer
+Why don't we resume the window 5?,resume.window_5
+Don't turn on the heater yet.,turn_on.heater
+Make sure to increase the fridge.,increase.fridge
+Remind me to close the speaker 3.,close.speaker_3
+Maybe set the thermostat to 72 degrees later.,set.thermostat.72
+Do you mind play the thermostat 2?,play.thermostat_2
+Please increase some bedroom TV.,increase.bedroom_TV
+Can we set the thermostat to 61 degrees now?,set.thermostat.61
+Decrease the porch light to 72 degrees.,decrease.porch_light
+Play my light 5.,play.light_5
+Please decrease some thermostat 1.,decrease.thermostat.5
+Do you mind set the window 5?,set.window_5
+Don't forget to pause the oven.,pause.oven
+I need you to decrease the window 2.,decrease.window_2
+Please decrease some window 4.,decrease.window_4
+Let's lock the speaker 4.,lock.speaker_4
+I'd like to unlock some radio.,unlock.radio
+"It's too cold, set the back door.",set.back_door
+I need you to play the dryer.,play.dryer
+"Increase the window 1, please.",increase.window_1
+I'd like to turn on some window 3.,turn_on.window_3
+Let's resume the hallway light.,resume.hallway_light
+Make sure to pause the kitchen light.,pause.kitchen_light
+Why don't we lock the blinds?,lock.blinds
+"Unlock the back door, thanks.",unlock.back_door
+Time to stop the bedroom light.,stop.bedroom_light
+Could you resume the fountain for me?,resume.fountain
+Maybe set the fan later.,set.fan
+I forgot to turn on the living room light.,turn_on.living_room_light
+Do you mind play the door 1?,play.door_1
+I forgot to turn off the kitchen faucet.,turn_off.kitchen_faucet
+Time to set the kitchen faucet.,set.kitchen_faucet
+"Hey, turn off the sprinklers.",turn_off.sprinklers
+Can we turn off the door 3 now?,turn_off.door_3
+"Hey, increase the speaker 1.",increase.speaker_1
+Why don't we unlock the fan 1?,unlock.fan_1
+I forgot to unlock the curtains.,unlock.curtains
+Help me lock the light 5.,lock.light_5
+"It's too hot, close the front door.",close.front_door
+"It's too hot, turn on the sprinklers.",turn_on.sprinklers
+I would like to resume the thermostat 1.,resume.thermostat_1
+I need you to stop the porch light.,stop.porch_light
+Remind me to unlock the light 1.,unlock.light_1
+Could you close the door 5 for me?,close.door_5
+It's time to play the light 4.,play.light_4
+"Pause the thermostat 3, thanks.",pause.thermostat_3
+"Pause the light 1, thanks.",pause.light_1
+Help me close the window 1.,close.window_1
+"Turn on the light 4, please.",turn_on.light_4
+Remind me to play the speaker 3.,play.speaker_3
+Maybe stop the bathtub later.,stop.bathtub
+"It's too hot, turn off the fan 3.",turn_off.fan_3
+Kindly open the light 5.,open.light_5
+Turn off the garage door now.,turn_off.garage_door
+Let's increase the door.,increase.door
+"It's too hot, set the bedroom TV.",set.bedroom_TV
+"It's too hot, resume the bedroom window.",resume.bedroom_window
+Stop my security system.,stop.security_system
+Time to stop the curtains.,stop.curtains
+Could you please stop the living room TV?,stop.living_room_TV
+I want to decrease the fan.,decrease.fan
+I'd like to play some bathroom light.,play.bathroom_light
+It's time to unlock the air conditioner.,unlock.air_conditioner
+Please lock some shower.,lock.shower
+Can we lock the thermostat 4 now?,lock.thermostat_4
+I want to resume the fan 3.,resume.fan_3
+Maybe play the fountain later.,play.fountain
+Kindly set the fan 3.,set.fan_3
+Don't forget to unlock the fan 3.,unlock.fan_3
+Why don't we set the bedroom window?,set.bedroom_window
+"Increase the bathroom light, thanks.",increase.bathroom_light
+"It's too cold, unlock the living room TV.",unlock.living_room_TV
+Remind me to play the window 4.,play.window_4
+Can we increase the fan 2 now?,increase.fan_2
+Could you stop my TV?,stop.TV
+Kindly open the bathroom faucet.,open.bathroom_faucet
+Help me lock the fridge.,lock.fridge
+Can we play the garage light now?,play.garage_light
+Could you play my fan?,play.fan
+"Pause the back door, please.",pause.back_door
+I need you to play the electronic music in the living room.,play.music.electronic.in_the_living_room
+I forgot to turn on the dehumidifier.,turn_on.dehumidifier
+Please decrease the thermostat 4.,decrease.thermostat.3
+Why don't we stop the back door?,stop.back_door
+Open the air conditioner now.,open.air_conditioner
+Could you please lock the door 3?,lock.door_3
+"It's too cold, resume the bathroom faucet.",resume.bathroom_faucet
+Don't stop the dryer yet.,stop.dryer
+Lock my fan 1.,lock.fan_1
+Set the door now.,set.door
+"Hey, set the air conditioner.",set.air_conditioner
+Could you resume the heater for me?,resume.heater
+I forgot to close the speaker 4.,close.speaker_4
+I would like to turn on the speaker 3.,turn_on.speaker_3
+Decrease the oven to 72 degrees.,decrease.oven
+I need you to close the heater.,close.heater
+I forgot to turn on the coffee maker.,turn_on.coffee_maker
+Why don't we close the radio?,close.radio
+Would you mind open the living room music?,open.living_room_music
+"Hey, lock the curtains.",lock.curtains
+I'd like to pause some living room TV.,pause.living_room_TV
+Help me open the speaker 1.,open.speaker_1
+"It's too hot, turn off the fan 4.",turn_off.fan_4
+Could you resume my thermostat 5?,resume.thermostat_5
+Please increase some thermostat.,increase.thermostat.4
+Do you mind turn off the light 5?,turn_off.light_5
+Kindly lock the door.,lock.door
+Time to unlock the window 2.,unlock.window_2
+Don't forget to increase the fan 5.,increase.fan_5
+Remind me to unlock the oven.,unlock.oven
+Maybe unlock the door 5 later.,unlock.door_5
+Can you play the washing machine?,play.washing_machine
+Unlock the speaker 1 to 72 degrees.,unlock.speaker_1
+Can we lock the fan 3 now?,lock.fan_3
+Please open the back door.,open.back_door
+"It's too cold, turn on the playlist.",turn_on.playlist
+I want to resume the dishwasher.,resume.dishwasher
+Time to open the kitchen faucet.,open.kitchen_faucet
+Turn on the living room music right away.,turn_on.living_room_music
+Kindly turn off the window 3.,turn_off.window_3
+"Pause the fan, thanks.",pause.fan
+I want to open the window 2.,open.window_2
+I forgot to lock the window 2.,lock.window_2
+Could you set my fan 5?,set.fan_5
+"Resume the light, please.",resume.light
+"Pause the volume, thanks.",pause.volume
+Could you please stop the garage light?,stop.garage_light
+Do you mind play the garage door?,play.garage_door
+Make sure to play the fan 3.,play.fan_3
+I'd like to close some speaker 2.,close.speaker_2
+Help me set the blinds.,set.blinds
+Do you mind close the fridge?,close.fridge
+I'd like to resume some window 3.,resume.window_3
+I want to unlock the window 1.,unlock.window_1
+I need you to stop the sprinklers.,stop.sprinklers
+Let's lock the alarm.,lock.alarm
+Could you lock the garden lights for me?,lock.garden_lights
+I need you to play the speaker 1.,play.speaker_1
+Make sure to set the bathroom faucet.,set.bathroom_faucet
+I would like to set the porch light.,set.porch_light
+Resume my door 5.,resume.door_5
+Help me close the dishwasher.,close.dishwasher
+Could you unlock my thermostat 4?,unlock.thermostat_4
+Would you mind stop the bedroom window?,stop.bedroom_window
+It's time to play the indoor light.,play.indoor_light
+Can we unlock the garage door now?,unlock.garage_door
+I need you to resume the thermostat 4.,resume.thermostat_4
+"It's too hot, lock the porch light.",lock.porch_light
+Remind me to close the shower.,close.shower
+"Hey, open the outdoor light.",open.outdoor_light
+It's time to decrease the air conditioner.,decrease.air_conditioner
+"It's too hot, unlock the speaker 5.",unlock.speaker_5
+Could you please close the door 3?,close.door_3
+I need you to pause the window 1.,pause.window_1
+I'd like to stop some light 3.,stop.light_3
+"It's too cold, turn off the bedroom TV.",turn_off.bedroom_TV
+Let's increase the bedroom light.,increase.bedroom_light
+Don't open the TV yet.,open.TV
+Help me turn on the music.,turn_on.music
+"It's too cold, set the light 2.",set.light_2
+Play the bathtub now.,play.bathtub
+Kindly turn off the fan 5.,turn_off.fan_5
+Can we decrease the garage door now?,decrease.garage_door
+I need you to decrease the living room music.,decrease.living_room_music
+Could you decrease my living room TV?,decrease.living_room_TV
+Kindly open the window 1.,open.window_1
+I need you to play the bedroom light.,play.bedroom_light
+"It's too hot, unlock the dishwasher.",unlock.dishwasher
+"It's too hot, lock the fan 2.",lock.fan_2
+Maybe stop the kitchen faucet later.,stop.kitchen_faucet
+Can you pause the window 2?,pause.window_2
+Maybe resume the speaker 3 later.,resume.speaker_3
+Don't forget to pause the fan 2.,pause.fan_2
+Decrease my bedroom light.,decrease.bedroom_light
+"Decrease the door, thanks.",decrease.door
+I forgot to decrease the jazz music.,decrease.jazz_music
+Could you please pause the light?,pause.light
+"It's too hot, set the dehumidifier.",set.dehumidifier
+Let's lock the thermostat.,lock.thermostat
+"It's too cold, stop the jazz music.",stop.jazz_music
+Help me decrease the thermostat 5.,decrease.thermostat.4
+Open the volume when you can.,open.volume
+Make sure to resume the alarm.,resume.alarm
+"It's too cold, close the thermostat 5.",close.thermostat_5
+Help me open the indoor light.,open.indoor_light
+Stop the hallway light to 72 degrees.,stop.hallway_light
+Would you mind resume the back door?,resume.back_door
+Open my garden lights.,open.garden_lights
+I forgot to unlock the door 4.,unlock.door_4
+"Hey, increase the garage door.",increase.garage_door
+I'd like to pause some fan 4.,pause.fan_4
+Time to turn on the curtains.,turn_on.curtains
+Why don't we open the fan 2?,open.fan_2
+Don't close the kitchen faucet yet.,close.kitchen_faucet
+Turn off the washing machine now.,turn_off.washing_machine
+Let's pause the alarm.,pause.alarm
+Let's turn on the door 3.,turn_on.door_3
+I forgot to play the security system.,play.security_system
+Don't pause the heater yet.,pause.heater
+I need you to stop the light 5.,stop.light_5
+Could you play my rock music in the bedroom?,play.music.rock.in_the_bedroom
+Set my thermostat to 76 degrees.,set.thermostat.76
+"Hey, unlock the light.",unlock.light
+Don't set the bathroom light yet.,set.bathroom_light
+"Hey, pause the thermostat 4.",pause.thermostat_4
+Don't lock the speaker 2 yet.,lock.speaker_2
+Stop my window 3.,stop.window_3
+"Hey, close the light.",close.light
+Can we increase the door 4 now?,increase.door_4
+Would you mind play the thermostat 5?,play.thermostat_5
+I forgot to close the playlist.,close.playlist
+Lock the bedroom TV right away.,lock.bedroom_TV
+Would you mind pause the speaker 4?,pause.speaker_4
+I want to resume the speaker 1.,resume.speaker_1
+Make sure to turn on the kitchen faucet.,turn_on.kitchen_faucet
+Kindly pause the light 2.,pause.light_2
+Close the garage door to 72 degrees.,close.garage_door
+Let's decrease the outdoor light.,decrease.outdoor_light
+I want to increase the heater.,increase.heater
+Make sure to play the door 4.,play.door_4
+I need you to set the door 1.,set.door_1
+Why don't we resume the speaker 5?,resume.speaker_5
+Lock the door 2 now.,lock.door_2
+Don't play the dehumidifier yet.,play.dehumidifier
+Can we turn off the window 4 now?,turn_off.window_4
+"It's too cold, turn on the bedroom light.",turn_on.bedroom_light
+Help me unlock the bedroom TV.,unlock.bedroom_TV
+Help me turn off the bedroom window.,turn_off.bedroom_window
+Time to pause the thermostat.,pause.thermostat
+Don't forget to set the living room light.,set.living_room_light
+Lock the back door when you can.,lock.back_door
+"Hey, increase the light 5.",increase.light_5
+Could you please stop the thermostat 3?,stop.thermostat_3
+Close my washing machine.,close.washing_machine
+Kindly close the dehumidifier.,close.dehumidifier
+Why don't we increase the window 2?,increase.window_2
+Help me unlock the dehumidifier.,unlock.dehumidifier
+"Unlock the outdoor light, thanks.",unlock.outdoor_light
+"It's too hot, pause the window 4.",pause.window_4
+Please unlock the light 2.,unlock.light_2
+It's time to stop the kitchen light.,stop.kitchen_light
+I would like to open the sprinklers.,open.sprinklers
+Remind me to close the fountain.,close.fountain
+"Hey, set the front door.",set.front_door
+Remind me to open the security system.,open.security_system
+Remind me to decrease the door 5.,decrease.door_5
+I want to lock the bathroom faucet.,lock.bathroom_faucet
+"Hey, play the electronic music in the bedroom.",play.music.electronic.in_the_bedroom
+"It's too hot, open the light 3.",open.light_3
+"It's too cold, turn on the volume.",turn_on.volume
+Don't forget to decrease the living room light.,decrease.living_room_light
+Could you please play the blinds?,play.blinds
+Please set the speaker 1.,set.speaker_1
+Don't forget to play the light 3.,play.light_3
+"It's too hot, pause the bedroom light.",pause.bedroom_light
+"It's too hot, open the light 2.",open.light_2
+Maybe lock the bathtub later.,lock.bathtub
+Pause the porch light when you can.,pause.porch_light
+It's time to open the playlist.,open.playlist
+Unlock my thermostat 2.,unlock.thermostat_2
+Don't close the security system yet.,close.security_system
+"Pause the TV, please.",pause.TV
+"It's too cold, pause the thermostat 5.",pause.thermostat_5
+Unlock the door 3 right away.,unlock.door_3
+I want to resume the freezer.,resume.freezer
+Do you mind turn off the speaker 4?,turn_off.speaker_4
+Could you please unlock the door 1?,unlock.door_1
+Do you mind stop the garage door?,stop.garage_door
+Help me pause the fountain.,pause.fountain
+"Hey, stop the volume.",stop.volume
+Set the washing machine now.,set.washing_machine
+Do you mind lock the heater?,lock.heater
+Kindly set the thermostat to 69 degrees.,set.thermostat.69
+Kindly set the thermostat to 62 degrees.,set.thermostat.62
+Can you pause the security system?,pause.security_system
+Do you mind turn off the thermostat 4?,turn_off.thermostat_4
+I'd like to unlock some microwave.,unlock.microwave
+Unlock my fan 4.,unlock.fan_4
+Please close the dryer.,close.dryer
+Kindly set the living room music.,set.living_room_music
+Please close the door 4.,close.door_4
+It's time to set the thermostat to 75 degrees.,set.thermostat.75
+Maybe play the window 1 later.,play.window_1
+Open the door 2 right away.,open.door_2
+I'd like to play some freezer.,play.freezer
+I'd like to turn on some hallway light.,turn_on.hallway_light
+Turn on my garage light.,turn_on.garage_light
+Do you mind set the fan 4?,set.fan_4
+Would you mind pause the light 5?,pause.light_5
+Why don't we pause the air conditioner?,pause.air_conditioner
+Pause the outdoor light now.,pause.outdoor_light
+Make sure to decrease the hallway light.,decrease.hallway_light
+"Hey, close the speaker 1.",close.speaker_1
+Please decrease some bedroom window.,decrease.bedroom_window
+Could you set my thermostat to 70 degrees?,set.thermostat.70
+Stop the bedroom TV right away.,stop.bedroom_TV
+Unlock the porch light to 72 degrees.,unlock.porch_light
+Could you pause the microwave for me?,pause.microwave
+Could you decrease the radio for me?,decrease.radio
+I want to set the thermostat to 74 degrees.,set.thermostat.74
+Time to stop the bathroom faucet.,stop.bathroom_faucet
+Could you please lock the fan 5?,lock.fan_5
+Stop the outdoor light to 72 degrees.,stop.outdoor_light
+Help me set the alarm for 5:15 PM.,set.alarm.5_15_PM
+Don't forget to set the thermostat to 60 degrees.,set.thermostat.60
+Make sure to lock the speaker 1.,lock.speaker_1
+Why don't we set the thermostat to 71 degrees?,set.thermostat.71
+Please turn off the bathtub.,turn_off.bathtub
+It's time to pause the thermostat 1.,pause.thermostat_1
+Could you increase the fan for me?,increase.fan
+Can we open the living room light now?,open.living_room_light
+Maybe play the classical music everywhere later.,play.music.classical.everywhere
+Please stop the speaker 4.,stop.speaker_4
+Why don't we resume the curtains?,resume.curtains
+I would like to open the thermostat.,open.thermostat
+I need you to turn on the fan.,turn_on.fan
+Remind me to play the country music in the living room.,play.music.country.in_the_living_room
+Time to play the fan 2.,play.fan_2
+Can we open the coffee maker now?,open.coffee_maker
+I want to play the rock music in the kitchen.,play.music.rock.in_the_kitchen
+Please lock some kitchen light.,lock.kitchen_light
+Open the fan right away.,open.fan
+Could you please stop the window 5?,stop.window_5
+Don't forget to play the electronic music everywhere.,play.music.electronic.everywhere
+Could you set my alarm for 6:30 AM?,set.alarm.6_30_AM
+Time to pause the music.,pause.music
+Kindly turn on the door 2.,turn_on.door_2
+I need you to set the thermostat to 66 degrees.,set.thermostat.66
+Play the light 1 to 72 degrees.,play.light_1
+Remind me to play the thermostat 4.,play.thermostat_4
+"Play the fan 1, please.",play.fan_1
+Kindly set the thermostat to 79 degrees.,set.thermostat.79
+I want to play the country music in the kitchen.,play.music.country.in_the_kitchen
+Time to set the thermostat to 78 degrees.,set.thermostat.78
+Don't pause the bathroom light yet.,pause.bathroom_light
+Can we set the thermostat to 67 degrees now?,set.thermostat.67
+Let's play the hip hop music in the kitchen.,play.music.hip hop.in_the_kitchen
+I forgot to set the thermostat to 77 degrees.,set.thermostat.77
+"Play the hip hop music in the living room, please.",play.music.hip hop.in_the_living_room
+Could you please play the classical music in the living room?,play.music.classical.in_the_living_room
+"It's too cold, play the blues music in the living room.",play.music.blues.in_the_living_room
+Let's set the thermostat to 65 degrees.,set.thermostat.65
+"It's too hot, play the pop music in the living room.",play.music.pop.in_the_living_room
+It's time to play the hip hop music everywhere.,play.music.hip hop.everywhere
+Time to play the electronic music in the kitchen.,play.music.electronic.in_the_kitchen
+I want to play the blues music everywhere.,play.music.blues.everywhere
+Don't forget to play the jazz music in the bedroom.,play.music.jazz.in_the_bedroom
+"It's too hot, set the alarm for 9:45 AM.",set.alarm.9_45_AM
+I'd like to play some rock music in the living room.,play.music.rock.in_the_living_room
+Please play some jazz music everywhere.,play.music.jazz.everywhere
+"Set the alarm for 8:30 PM, thanks.",set.alarm.8_30_PM
+Can we set the alarm for 11:00 AM now?,set.alarm.11_00_AM
+Set the alarm for 8:15 AM to 72 degrees.,set.alarm.8_15_AM
+Would you mind set the alarm for 4:00 PM?,set.alarm.4_00_PM
+Could you set the alarm for 7:30 AM for me?,set.alarm.7_30_AM
+Help me set the alarm for 10:15 AM.,set.alarm.10_15_AM
+Why don't we play the pop music everywhere?,play.music.pop.everywhere
+Set my alarm for 11:30 AM.,set.alarm.11_30_AM
+I'd like to play some jazz music in the kitchen.,play.music.jazz.in_the_kitchen
+Help me play the country music in the bedroom.,play.music.country.in_the_bedroom
+Help me play the hip hop music in the bedroom.,play.music.hip hop.in_the_bedroom
+Don't set the alarm for 1:45 PM yet.,set.alarm.1_45_PM
+Could you please set the alarm for 4:45 PM?,set.alarm.4_45_PM
+Play my pop music in the bedroom.,play.music.pop.in_the_bedroom
+Make sure to set the alarm for 9:30 AM.,set.alarm.9_30_AM
+Make sure to play the blues music in the bedroom.,play.music.blues.in_the_bedroom
+"Play the rock music everywhere, please.",play.music.rock.everywhere
+Do you mind set the alarm for 7:30 PM?,set.alarm.7_30_PM
+Set my alarm for 8:45 PM.,set.alarm.8_45_PM
+Can we set the alarm for 10:30 PM now?,set.alarm.10_30_PM
+Can you set the alarm for 9:45 PM?,set.alarm.9_45_PM
+"Set the alarm for 1:45 AM, thanks.",set.alarm.1_45_AM
+Please play the classical music in the kitchen.,play.music.classical.in_the_kitchen
+I would like to set the alarm for 9:15 AM.,set.alarm.9_15_AM
+Don't set the alarm for 7:15 PM yet.,set.alarm.7_15_PM
+Don't forget to set the alarm for 2:15 PM.,set.alarm.2_15_PM
+Play my country music everywhere.,play.music.country.everywhere
+Remind me to set the alarm for 4:30 PM.,set.alarm.4_30_PM
+Do you mind set the alarm for 3:00 PM?,set.alarm.3_00_PM
+"It's too hot, set the alarm for 3:30 PM.",set.alarm.3_30_PM
+Don't forget to set the alarm for 1:30 PM.,set.alarm.1_30_PM
+I'd like to play some jazz music in the living room.,play.music.jazz.in_the_living_room
+Set the alarm for 5:00 PM now.,set.alarm.5_00_PM
+Do you mind set the alarm for 12:00 AM?,set.alarm.12_00_AM
+Set the alarm for 4:15 PM when you can.,set.alarm.4_15_PM
+Please set the alarm for 2:45 AM.,set.alarm.2_45_AM
+Help me set the alarm for 2:45 PM.,set.alarm.2_45_PM
+Remind me to set the alarm for 11:45 PM.,set.alarm.11_45_PM
+Don't set the alarm for 10:45 PM yet.,set.alarm.10_45_PM
+Please play the pop music in the kitchen.,play.music.pop.in_the_kitchen
+Set the alarm for 5:45 AM now.,set.alarm.5_45_AM
+Help me set the alarm for 11:15 PM.,set.alarm.11_15_PM
+Kindly set the alarm for 6:15 AM.,set.alarm.6_15_AM
+Help me set the alarm for 8:15 PM.,set.alarm.8_15_PM
+Remind me to set the alarm for 9:15 PM.,set.alarm.9_15_PM
+Can we set the alarm for 12:00 PM now?,set.alarm.12_00_PM
+Could you please set the alarm for 7:45 PM?,set.alarm.7_45_PM
+"Hey, set the alarm for 5:30 AM.",set.alarm.5_30_AM
+Set my alarm for 1:00 PM.,set.alarm.1_00_PM
+It's time to set the alarm for 12:30 AM.,set.alarm.12_30_AM
+It's time to set the alarm for 6:45 AM.,set.alarm.6_45_AM
+"Set the alarm for 3:45 AM, thanks.",set.alarm.3_45_AM
+Remind me to set the alarm for 3:00 AM.,set.alarm.3_00_AM
+I forgot to set the alarm for 12:45 AM.,set.alarm.12_45_AM
+I'd like to set some alarm for 5:45 PM.,set.alarm.5_45_PM
+Maybe set the alarm for 11:15 AM later.,set.alarm.11_15_AM
+I would like to set the alarm for 3:45 PM.,set.alarm.3_45_PM
+I forgot to set the alarm for 7:00 PM.,set.alarm.7_00_PM
+Set the alarm for 6:00 PM right away.,set.alarm.6_00_PM
+Do you mind set the alarm for 7:15 AM?,set.alarm.7_15_AM
+Set the alarm for 1:15 AM now.,set.alarm.1_15_AM
+Can we set the alarm for 11:30 PM now?,set.alarm.11_30_PM
+"Set the alarm for 10:00 PM, please.",set.alarm.10_00_PM
+Let's set the alarm for 7:45 AM.,set.alarm.7_45_AM
