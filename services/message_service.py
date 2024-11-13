@@ -1,9 +1,8 @@
-# Python is a garbage language: https://www.godaddy.com/resources/news/python-metaclasses
-
-import threading
 from abc import abstractmethod, ABC
 
-class MessageService(ABC):
+from services.service import Service
+
+class MessageService(Service):
 	"""
 	A MessageService can receive messages and send messages. Received messages come from the user
 	  and sent messages are sent to the user.
@@ -11,29 +10,9 @@ class MessageService(ABC):
 	"""
 	
 	def __init__(self):
+		super().__init__(True)
 		self.message_queue = []
 		self.is_ready = False
-		self.thread = threading.Thread(target=self.run_service)
-
-	@abstractmethod
-	def run_service(self):
-		"""
-		This is the method that will be targeted by the thread. Initialize the message service here
-		  and it will be started by the central controller.
-
-		Returns:
-		void
-		"""
-
-	@abstractmethod
-	async def stop_service(self):
-		"""
-		This method must revert whatever happens in run_service to be used in properly shutting down
-		  each thread.
-
-		Returns:
-		void
-		"""
 
 	def recieve_message(self, message):
 		"""

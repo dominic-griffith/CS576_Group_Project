@@ -1,5 +1,3 @@
-from HomeAssistantController import HomeAssistantController
-
 class CommandProcessor:
     """
     The CommandProcessor will be able to parse string inputs and resolve them into commands.
