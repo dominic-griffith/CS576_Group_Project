@@ -17,11 +17,12 @@ cmd_processor = CommandProcessor()
 service_manager.load_config()
 service_manager.load_services()
 
-if(not 'home_assistant' in service_manager.services.keys()):
-    print("Failed to start HomeAssistantHub, the HomeAssistant service failed to load.")
-    exit()
+ha_controller = None
+if('home_assistant' in service_manager.services.keys()):
+    ha_controller = service_manager.services["home_assistant"]
 
-ha_controller = service_manager.services["home_assistant"]
+if(ha_controller is None):
+    print("WARNING: HomeAssistant hasn't loaded, no requests will be made.")
 
 if(len(service_manager.get_message_services()) == 0):
     service_manager.load_service("command_line")
@@ -64,7 +65,7 @@ try:
             try:
                 action_label, entity_id = cmd_processor.process_command(message_in)
             except CommandProcessingError as e:
-                message_service.send_message(f"Failed to process command \"{message_in}\": {e.message}")
+                message_service.send_message(f"Failed to process command \"{message_in}\": {e.message}", message_in)
                 print(e)
                 continue
 
@@ -72,7 +73,9 @@ try:
             print(f"Making request for action label {action_label} and entity id {entity_id}")
 
             # Make the request for HomeAssistant
-            request_status, request_response_text = ha_controller.make_request(action_label, entity_id)
+            request_status, request_response_text = True, None
+            if(ha_controller is not None):
+                request_status, request_response_text = ha_controller.make_request(action_label, entity_id)
             
             # Output message to user via message_service
             if(request_status):
