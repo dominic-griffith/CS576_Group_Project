@@ -1,10 +1,9 @@
 import logging
 import json
 import asyncio
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, CallbackQueryHandler, CommandHandler, filters
 from services.message_service import MessageService
-
 
 
 class TelegramBot(MessageService):
@@ -24,7 +23,6 @@ class TelegramBot(MessageService):
         if not self.token:
             return False, "Invalid API key provided."
         return True, None
-
 
     def run_service(self):
         """
@@ -46,7 +44,6 @@ class TelegramBot(MessageService):
         finally:
             loop.close()  # Ensure the event loop is closed at the end
 
-
     def stop_service(self):
         """
         Stop the service.
@@ -59,7 +56,7 @@ class TelegramBot(MessageService):
         """
         Register handlers for the bot.
         """
-        menu_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), self.send_menu)
+        menu_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), self.process_message)
         button_handler = CallbackQueryHandler(self.button_callback)
 
         self.application.add_handler(menu_handler)
@@ -127,20 +124,34 @@ class TelegramBot(MessageService):
         # Send the menu of buttons again
         await self.send_menu(update, context)
 
+    async def process_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """
+        Process text messages and pass them to the central_controller.
+        """
+        user_input = update.message.text  # Get the user's input
+
+        # Pass the message to the message queue (to be processed by the central_controller)
+        self.recieve_message(user_input)
+
+        # Optional feedback to the user
+        await context.bot.send_message(
+            chat_id=update.message.chat_id,
+            text=f"Received your command: '{user_input}'. Processing..."
+        )
 
     def send_message(self, message, in_response_to):
         """
         Send a message to the Telegram chat.
         """
-        # Implementation for sending messages
         print(f"Sending message: {message} (in response to: {in_response_to})")
 
     def await_message(self):
         """
         Wait for a message from Telegram.
+        This function is not used directly because Telegram handles events asynchronously.
         """
-        # This function is not used directly because Telegram handles events asynchronously.
         pass
+
 
 # Dictionary of actions and their corresponding responses
 ACTIONS = {
