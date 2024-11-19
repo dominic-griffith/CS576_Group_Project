@@ -1,5 +1,3 @@
-from HomeAssistantController import HomeAssistantController
-
 class CommandProcessor:
     """
     The CommandProcessor will be able to parse string inputs and resolve them into commands.
@@ -41,8 +39,11 @@ class CommandProcessor:
         """
         command = command.lower()
 
+        # Sort actions by length to prevent partial matches (e.g. "lock" being matched before "unlock")
+        sorted_actions = sorted(self.action_mapping.keys(), key=len, reverse=True)
+
         action = None
-        for word in self.action_mapping:
+        for word in sorted_actions:
             if word in command:
                 action = word
                 break
