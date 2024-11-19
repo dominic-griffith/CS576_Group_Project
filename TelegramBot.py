@@ -1,11 +1,3 @@
-import logging
-import os
-import json
-
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, CallbackQueryHandler, filters
-
-
 """
 - Install dependencies
 - Add key to .env file
@@ -15,9 +7,14 @@ from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, Callb
 TODO:
 - Convert to a class like DiscordBot
 - Integrate with Home Assistant
-
 """
 
+
+import logging
+import os
+import json
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, CallbackQueryHandler, CommandHandler, filters
 
 # Ruta al archivo de configuración
 CONFIG_PATH = os.path.expanduser("./service_manager.json")
@@ -44,19 +41,24 @@ logging.basicConfig(
     level=logging.INFO
 )
 
+# Diccionario centralizado de acciones y respuestas
+ACTIONS = {
+    "turn_light_on": "💡 ON!",
+    "turn_light_off": "💡 OFF!",
+    "open_door": "Door opened!🔓",
+    "lock_door": "Door locked!🔒",
+    "cam_1": "Sending image from cam 1!📷",
+    "cam_2": "Sending image from cam 2!📷"
+}
+
 # Función para enviar el menú de botones
 async def send_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [InlineKeyboardButton("Turn light on", callback_data='turn_light_on')],
-        [InlineKeyboardButton("Turn light off", callback_data='turn_light_off')],
-        [InlineKeyboardButton("Open door", callback_data='open_door')],
-        [InlineKeyboardButton("Lock door", callback_data='lock_door')],
-        [InlineKeyboardButton("Cam 1", callback_data='cam_1')],
-        [InlineKeyboardButton("Cam 2", callback_data='cam_2')],
+        [InlineKeyboardButton(action.replace("_", " ").capitalize(), callback_data=action)]
+        for action in ACTIONS.keys()
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     
-    # Determinar el chat_id de forma segura
     chat_id = (
         update.message.chat_id if update.message 
         else update.callback_query.message.chat_id
@@ -68,27 +70,38 @@ async def send_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=reply_markup
     )
 
-# Función para manejar la respuesta de los botones
-async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()  # Confirma que se presionó el botón
-
-    # Mensajes de respuesta según el botón presionado
-    if query.data == 'turn_light_on':
-        await query.edit_message_text(text="💡 ON!")
-    elif query.data == 'turn_light_off':
-        await query.edit_message_text(text="💡 OFF!")
-    elif query.data == 'open_door':
-        await query.edit_message_text(text="Door opened!🔓")
-    elif query.data == 'lock_door':
-        await query.edit_message_text(text="Door locked!🔒")
-    elif query.data == 'cam_1':
-        await query.edit_message_text(text="Sending image from cam 1!📷")
-    elif query.data == 'cam_2':
-        await query.edit_message_text(text="Sending image from cam 2!📷")
-
+# Función genérica para manejar acciones (tanto botones como comandos)
+async def handle_action(update: Update, context: ContextTypes.DEFAULT_TYPE, action: str):
+    chat_id = update.message.chat_id if update.message else update.callback_query.message.chat_id
+    response = ACTIONS.get(action, "Action not recognized.")  # Obtener respuesta del diccionario
+    
+    # Responder el mensaje
+    if update.callback_query:
+        # Si es un botón, edita el mensaje
+        await update.callback_query.answer()
+        await update.callback_query.edit_message_text(text=response)
+    else:
+        # Si es un comando, responde normalmente
+        await context.bot.send_message(chat_id=chat_id, text=response)
+    
     # Reenviar el menú de botones después de dar el feedback
     await send_menu(update, context)
+
+# Función para manejar botones
+async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    action = query.data
+    await handle_action(update, context, action)
+
+# Función para registrar los comandos dinámicamente
+def register_dynamic_commands(application):
+    for action in ACTIONS.keys():
+        command = action  # Comando será igual al nombre de la acción
+        async def dynamic_command(update: Update, context: ContextTypes.DEFAULT_TYPE, action=action):
+            await handle_action(update, context, action)
+        
+        # Registrar el comando
+        application.add_handler(CommandHandler(command, dynamic_command))
 
 if __name__ == '__main__':
     application = ApplicationBuilder().token(API_KEY).build()
@@ -96,8 +109,10 @@ if __name__ == '__main__':
     # Enviar el menú cuando el usuario manda el primer mensaje
     menu_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), send_menu)
     button_handler = CallbackQueryHandler(button_callback)
-    
+
+    # Añadir handlers para botones y comandos dinámicos
     application.add_handler(menu_handler)
     application.add_handler(button_handler)
+    register_dynamic_commands(application)
     
     application.run_polling()
