@@ -5,6 +5,7 @@ from services.home_assistant import HomeAssistantController
 from services.message_service import MessageService
 from services.command_line_ms import CommandLine
 from services.discord_ms import DiscordBot
+from services.telegram_ms import TelegramBot
 
 def load_json(file_path):
     """
@@ -118,7 +119,7 @@ class ServiceManager():
         if(loaded_service_count == 0):
             print("Didn't load any services. Have you configured ~/HomeAssistantHub/service_manager.json yet?")
         else:
-            print(f"Loaded {loaded_service_count} service(s): {str.join(", ", self.services.keys())}")
+            print(f"Loaded {loaded_service_count} service(s): {str.join(', ', self.services.keys())}")
 
     def load_service(self, service_name):
         """
@@ -203,6 +204,5 @@ class ServiceManager():
         elif(name == "discord"):
             return DiscordBot()
         elif(name == "telegram"):
-            # TODO include telegram
-            return None
+            return TelegramBot()
         return None
