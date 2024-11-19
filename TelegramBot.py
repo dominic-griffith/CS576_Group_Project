@@ -1,6 +1,6 @@
 import logging
 import os
-from dotenv import load_dotenv
+import json
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, CallbackQueryHandler, filters
@@ -19,15 +19,25 @@ TODO:
 """
 
 
+# Ruta al archivo de configuración
+CONFIG_PATH = os.path.expanduser("./service_manager.json")
 
+def load_api_key(service_name):
+    try:
+        with open(CONFIG_PATH, 'r') as file:
+            config = json.load(file)
+            return config["services"][service_name]["api_key"]
+    except FileNotFoundError:
+        print(f"Config file not found: {CONFIG_PATH}")
+    except KeyError:
+        print(f"API key for {service_name} not found in config")
+    return None
 
+# Cargar la API key de Telegram desde el archivo JSON
+API_KEY = load_api_key("telegram")
 
-
-# Cargar las variables de entorno desde el archivo .env
-load_dotenv()
-
-# Obtener la API key de las variables de entorno
-API_KEY = os.getenv('TELEGRAM_BOT_API_KEY')
+if not API_KEY:
+    raise ValueError("Telegram API key not found. Please check your configuration file.")
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
