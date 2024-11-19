@@ -5,18 +5,18 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, CallbackQueryHandler, CommandHandler, filters
 from services.message_service import MessageService
 
-# Ruta al archivo de configuración
-CONFIG_PATH = "../service_manager.json"
+
 
 class TelegramBot(MessageService):
     def __init__(self):
         super().__init__()
-        self.application = None  # Instancia del bot de Telegram
+        self.application = None  # Telegram bot instance
         self.token = None  # API key
 
     def load_config(self, config):
         """
-        Cargar la configuración desde el archivo JSON.
+        Load the configuration from the JSON file.
+        The configuration is provided by the ServiceManager.
         """
         if "api_key" not in config:
             return False, "No API Key provided."
@@ -28,28 +28,28 @@ class TelegramBot(MessageService):
 
     def run_service(self):
         """
-        Iniciar el servicio del bot de Telegram en un hilo separado con su propio loop de eventos.
+        Start the Telegram bot service in a separate thread with its own event loop.
         """
         self.application = ApplicationBuilder().token(self.token).build()
 
-        # Registrar handlers
+        # Register handlers
         self._register_handlers()
 
-        # Crear un nuevo loop de eventos para el hilo actual
+        # Create a new event loop for the current thread
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
 
-        # Iniciar el bot con el nuevo loop de eventos
+        # Start the bot with the new event loop
         print("Starting Telegram bot...")
         try:
             self.application.run_polling()
         finally:
-            loop.close()  # Asegúrate de cerrar el loop al finalizar
+            loop.close()  # Ensure the event loop is closed at the end
 
 
     def stop_service(self):
         """
-        Detener el servicio.
+        Stop the service.
         """
         if self.application:
             self.application.stop()
@@ -57,7 +57,7 @@ class TelegramBot(MessageService):
 
     def _register_handlers(self):
         """
-        Registrar los handlers para el bot.
+        Register handlers for the bot.
         """
         menu_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), self.send_menu)
         button_handler = CallbackQueryHandler(self.button_callback)
@@ -65,12 +65,12 @@ class TelegramBot(MessageService):
         self.application.add_handler(menu_handler)
         self.application.add_handler(button_handler)
 
-        # Registrar comandos dinámicos
+        # Register dynamic commands
         self._register_dynamic_commands()
 
     def _register_dynamic_commands(self):
         """
-        Registrar comandos dinámicos basados en las acciones.
+        Register dynamic commands based on the actions.
         """
         for action in ACTIONS.keys():
             async def dynamic_command(update, context, action=action):
@@ -79,7 +79,7 @@ class TelegramBot(MessageService):
 
     async def send_menu(self, update, context: ContextTypes.DEFAULT_TYPE):
         """
-        Enviar el menú de botones.
+        Send the menu of buttons.
         """
         keyboard = [
             [InlineKeyboardButton(action.replace("_", " ").capitalize(), callback_data=action)]
@@ -87,13 +87,13 @@ class TelegramBot(MessageService):
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-        # Determinar el chat_id dependiendo de si es un comando o un botón
+        # Determine the chat_id depending on whether it is a command or a button
         chat_id = (
             update.message.chat_id if update.message
             else update.callback_query.message.chat_id
         )
 
-        # Enviar el menú al usuario
+        # Send the menu to the user
         await context.bot.send_message(
             chat_id=chat_id,
             text="Choose an action:",
@@ -102,14 +102,14 @@ class TelegramBot(MessageService):
 
     async def button_callback(self, update, context: ContextTypes.DEFAULT_TYPE):
         """
-        Manejar los botones del menú.
+        Handle the menu buttons.
         """
         query = update.callback_query
         await self.handle_action(update, context, query.data)
 
     async def handle_action(self, update, context: ContextTypes.DEFAULT_TYPE, action: str):
         """
-        Manejar las acciones para botones y comandos.
+        Handle actions for buttons and commands.
         """
         response = ACTIONS.get(action, "Action not recognized.")
         chat_id = (
@@ -117,32 +117,32 @@ class TelegramBot(MessageService):
             else update.message.chat_id
         )
 
-        # Enviar el mensaje de feedback
+        # Send feedback message
         if update.callback_query:
             await update.callback_query.answer()
             await context.bot.send_message(chat_id=chat_id, text=response)
         else:
             await context.bot.send_message(chat_id=chat_id, text=response)
 
-        # Enviar el menú de botones nuevamente
+        # Send the menu of buttons again
         await self.send_menu(update, context)
 
 
     def send_message(self, message, in_response_to):
         """
-        Enviar un mensaje al chat de Telegram.
+        Send a message to the Telegram chat.
         """
-        # Implementación para enviar mensajes
+        # Implementation for sending messages
         print(f"Sending message: {message} (in response to: {in_response_to})")
 
     def await_message(self):
         """
-        Esperar un mensaje desde Telegram.
+        Wait for a message from Telegram.
         """
-        # Esta función no es usada directamente porque Telegram maneja eventos asincrónicamente.
+        # This function is not used directly because Telegram handles events asynchronously.
         pass
 
-# Diccionario de acciones y respuestas
+# Dictionary of actions and their corresponding responses
 ACTIONS = {
     "turn_light_on": "💡 ON!",
     "turn_light_off": "💡 OFF!",
