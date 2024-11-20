@@ -101,16 +101,10 @@ class DiscordBot(MessageService):
 		# print message; not necessary, just used to illustrate
 		print(f"Received discord message from {msg_author}: {msg_content}")
 
-		# if a user wants to know what their id is, give it to them
-		# this will allow them to add themselves as an authorized user to their own device
-		if msg_content.lower().startswith("what is my id"):
-			self.send_message(f"Hi <@{msg_author.id}>, your id is {msg_author.id}. Thanks for using the HomeAssistant!", msg_content)
-			return
-
 		# validate the id of the user that just sent a message.
 		# only authorized users should be able to modify the state of a device
-		if msg_author.id not in self.authorized_users:
-			# notify user that they are not authorized. do not process the command further."
+		if msg_author.name not in self.authorized_users:
+			# notify user that they are not authorized. do not process the command further.
 			self.send_message(f"Sorry <@{msg_author.id}>, you are not authorized to do that.", msg_content)
 			return
 
