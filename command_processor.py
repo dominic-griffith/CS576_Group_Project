@@ -28,6 +28,28 @@ class CommandProcessor:
             "toggle": "light/toggle"
         }
     
+    def add_to_enity_mapping(self, entity_name, entity_id):
+        #Validate the entity_id is valid with HomeAssistant
+        self.entity_mapping[entity_name] = entity_id
+    
+    def add_to_action_mapping(self, action_name, action_id):
+        #Validate the action_id is valid with HomeAssistant
+        self.action_mapping[action_name] = action_id
+
+    def remove_from_entity_mapping(self, entity_name):
+        if entity_name in self.entity_mapping:
+            del self.entity_mapping[entity_name]
+            return True
+        else:
+            return False
+        
+    def remove_from_action_mapping(self, action_name):
+        if action_name in self.action_mapping:
+            del self.action_mapping[action_name]
+            return True
+        else:
+            return False
+    
     def process_command(self, command):
         """
         Process a string command and convert it to a action_url and entity_id tuple.
@@ -56,7 +78,7 @@ class CommandProcessor:
         
         if(action and target):
             return (self.action_mapping[action], self.entity_mapping[target])
-        else:
+        else: #This is where command should be sent to LLM
             if not action:
                 raise CommandProcessingError("Unrecognized action.")
             if not target:
