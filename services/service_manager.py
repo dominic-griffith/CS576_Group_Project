@@ -56,6 +56,7 @@ default_config = {
             "api_key": ""
         },
         "discord": {
+            "authorized_users": [],
             "api_key": ""
         },
         "telegram": {
@@ -108,7 +109,7 @@ class ServiceManager():
 #region Loading/Starting/Stopping
     def load_services(self):
         """
-        Load all services by the config's supported_services list, it enumaretes each string in
+        Load all services by the config's supported_services list, it enumerates each string in
           the list and calls load_service on each one.
         """
         for service_name in self.config["supported_services"]:
