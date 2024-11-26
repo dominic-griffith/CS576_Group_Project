@@ -41,6 +41,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 try:
+    print("Running...")
     while running:
         # Loop through each message service and check if its queue has pending messages for us to
         #   handle.
