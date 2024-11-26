@@ -23,6 +23,6 @@ class CommandLine(MessageService):
 		#   this.
 		return input(f"Enter a message/command: ")
 	
-	def send_message(self, message):
+	def send_message(self, message, in_response_to):
 		print(message)        
 		return

@@ -27,6 +27,8 @@ class CommandProcessor:
             "turn on": "light/turn_on",
             "toggle": "light/toggle"
         }
+
+        self.custom_commands = {}
     
     def add_to_enity_mapping(self, entity_name, entity_id):
         #Validate the entity_id is valid with HomeAssistant
@@ -35,6 +37,9 @@ class CommandProcessor:
     def add_to_action_mapping(self, action_name, action_id):
         #Validate the action_id is valid with HomeAssistant
         self.action_mapping[action_name] = action_id
+
+    def add_custom_command(self, command_name, command):
+        self.custom_commands[command_name] = command
 
     def remove_from_entity_mapping(self, entity_name):
         if entity_name in self.entity_mapping:
@@ -60,7 +65,17 @@ class CommandProcessor:
         (string, string): The action_url and entity_id tuple
         """
         command = command.lower()
+        command_split = command.split(" ")
 
+        # Try to parse as custom command first
+        if(command_split[0] in self.custom_commands):
+            return {
+                "processed_type": "custom_cmd",
+                "custom_cmd": self.custom_commands[command_split[0]],
+                "custom_cmd_label": command_split[0]
+            }
+
+        # Try to parse as HomeAssistant command
         # Sort actions by length to prevent partial matches (e.g. "lock" being matched before "unlock")
         sorted_actions = sorted(self.action_mapping.keys(), key=len, reverse=True)
 
@@ -77,7 +92,12 @@ class CommandProcessor:
                 break
         
         if(action and target):
-            return (self.action_mapping[action], self.entity_mapping[target])
+            # return (self.action_mapping[action], self.entity_mapping[target])
+            return {
+                "processed_type": "ha_cmd",
+                "action_label": self.action_mapping[action],
+                "entity_id": self.entity_mapping[target]
+            }
         else: #This is where command should be sent to LLM
             if not action:
                 raise CommandProcessingError("Unrecognized action.")

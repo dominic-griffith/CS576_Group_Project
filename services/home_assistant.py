@@ -91,7 +91,7 @@ class HomeAssistantController(Service):
 		requests.exceptions.RequestException: If there is an issue with the HTTP request.
 		"""
 
-		url = f"{self.api_url}/api/states"
+		url = f"{self.ha_url}/api/states"
 		response = requests.get(url, headers=self.headers)
 		response.raise_for_status()  # Raises an HTTPError if the HTTP request returned an unsuccessful status code
 		return response.json()
