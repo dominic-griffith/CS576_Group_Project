@@ -9,8 +9,8 @@ class MessageService(Service):
 	The message_queue should be used to read incoming messages.
 	"""
 	
-	def __init__(self):
-		super().__init__(True)
+	def __init__(self, is_threaded=True):
+		super().__init__(is_threaded)
 		self.message_queue = []
 		self.is_ready = False
 

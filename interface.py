@@ -1,13 +1,42 @@
+import sys
+import threading
 import tkinter as tk
 from tkinter import ttk
-import threading
-import sys
 
+from services.message_service import MessageService
 
 class InterfaceManager:
     def __init__(self, service_manager, command_processor):
         self.service_manager = service_manager
         self.command_processor = command_processor
+
+        self._init_tk()
+
+        # Set up pseudo message service
+        self.interface_ms = InterfaceMessageService(self)
+        service_manager.register_service("interface_ms", self.interface_ms)
+
+        # Register an exit call for when the user clicks close window on the standalone window
+        self.root.protocol("WM_DELETE_WINDOW", lambda: self.interface_ms.recieve_message("exit"))
+        
+    def update(self):
+        """
+        Update call to update interface and synchronize console queue with what's shown on screen.
+        """
+        self.root.update()
+
+        while len(self.console_queue) > 0:
+            message = self.console_queue.pop()
+            self.add_console_text(message)
+
+    def add_console_text(self, message):
+        self.output_text.insert(tk.END, message)
+        self.output_text.see(tk.END)
+
+    def _init_tk(self):
+        # A list of strings to be added to console
+        self.console_queue = []
+
         self.root = tk.Tk()
         self.root.title("Home Assistant Interface")
         self.root.geometry("800x600")
@@ -16,7 +45,6 @@ class InterfaceManager:
         self.user_input = None
 
         self._setup_ui()
-        self._redirect_print()
 
     def _setup_ui(self):
         # Create a container for tabs
@@ -73,33 +101,40 @@ class InterfaceManager:
 
     def send_command(self):
         command = self.user_input.get()
-        if command.strip():
-            try:
-                action, entity = self.command_processor.process_command(command)
-                print(f"Processed Command -> Action: {action}, Entity: {entity}")
-            except Exception as e:
-                print(str(e))
-        else:
-            print("Error: Command cannot be empty.")
+        self.interface_ms.recieve_message(command)
+        # if command.strip():
+        #     try:
+        #         action, entity = self.command_processor.process_command(command)
+        #         print(f"Processed Command -> Action: {action}, Entity: {entity}")
+        #     except Exception as e:
+        #         print(str(e))
+        # else:
+        #     print("Error: Command cannot be empty.")
         self.user_input.delete(0, tk.END)
-
-    def _redirect_print(self):
-        class PrintRedirector:
-            def __init__(self, text_widget):
-                self.text_widget = text_widget
-
-            def write(self, message):
-                self.text_widget.insert(tk.END, message)
-                self.text_widget.see(tk.END)
-
-            def flush(self):
-                pass
-
-        sys.stdout = PrintRedirector(self.output_text)
 
     def start(self):
         threading.Thread(target=self.root.mainloop, daemon=True).start()
 
+class InterfaceMessageService(MessageService):
+    def __init__(self, interface):
+        super().__init__(False)
+        # Store interface reference to be used in send_message
+        self.interface = interface
+
+    def load_config(self, config):
+        return
+
+    def run_service(self):
+        return
+    
+    def stop_service(self):
+        return
+
+    def await_message(self):
+        return
+
+    def send_message(self, message, in_response_to):
+        self.interface.add_console_text(message)
 
 if __name__ == "__main__":
     from services.service_manager import ServiceManager

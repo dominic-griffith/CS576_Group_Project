@@ -151,6 +151,12 @@ class ServiceManager():
             return
 
         # Register the service with the ServiceManager
+        self.register_service(service_name, service)
+
+    def register_service(self, service_name, service):
+        """
+        Register a service with the service manager by its name.
+        """
         self.services[service_name] = service
 
     def start_services(self):
