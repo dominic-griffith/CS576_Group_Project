@@ -9,6 +9,8 @@ class InterfaceManager:
     def __init__(self, service_manager, command_processor):
         self.service_manager = service_manager
         self.command_processor = command_processor
+        # A list of strings to be added to console
+        self.console_queue = []
 
         self._init_tk()
 
@@ -34,9 +36,6 @@ class InterfaceManager:
         self.output_text.see(tk.END)
 
     def _init_tk(self):
-        # A list of strings to be added to console
-        self.console_queue = []
-
         self.root = tk.Tk()
         self.root.title("Home Assistant Interface")
         self.root.geometry("800x600")
