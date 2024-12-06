@@ -118,7 +118,7 @@ class ServiceManager():
         if(loaded_service_count == 0):
             print("Didn't load any services. Have you configured ~/HomeAssistantHub/service_manager.json yet?")
         else:
-            print(f"Loaded {loaded_service_count} service(s): {str.join(", ", self.services.keys())}")
+            print(f"Loaded {loaded_service_count} service(s): {str.join(', ', self.services.keys())}")
 
     def load_service(self, service_name):
         """

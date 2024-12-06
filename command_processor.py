@@ -1,3 +1,5 @@
+from slm_command_processor import SLMCommandProcessor
+
 class CommandProcessor:
     """
     The CommandProcessor will be able to parse string inputs and resolve them into commands.
@@ -7,6 +9,8 @@ class CommandProcessor:
     """
 
     def __init__(self):
+        self.slm_processor = SLMCommandProcessor()
+
         # Dictionary to map target entities to Home Assistant entity IDs
         self.entity_mapping = {
             "all": "all",
@@ -67,7 +71,8 @@ class CommandProcessor:
         command = command.lower()
         command_split = command.split(" ")
 
-        # Try to parse as custom command first
+        # Theres 3 major steps: Parse as custom command, parse as home assistant command, parse with slm
+        # 1. Try to parse as custom command first
         if(command_split[0] in self.custom_commands):
             return {
                 "processed_type": "custom_cmd",
@@ -75,7 +80,7 @@ class CommandProcessor:
                 "custom_cmd_label": command_split[0]
             }
 
-        # Try to parse as HomeAssistant command
+        # 2. Try to parse as HomeAssistant command
         # Sort actions by length to prevent partial matches (e.g. "lock" being matched before "unlock")
         sorted_actions = sorted(self.action_mapping.keys(), key=len, reverse=True)
 
@@ -91,18 +96,34 @@ class CommandProcessor:
                 target = entity
                 break
         
+        # Successfully processed the command without SLM, return the parse result
+        # We want this to happen before the SLM because it is 100% what the user intends to do.
+        # That way, if the user's SLM inputs aren't what they want, they can use the consistent commands
         if(action and target):
-            # return (self.action_mapping[action], self.entity_mapping[target])
             return {
                 "processed_type": "ha_cmd",
+                "used_slm": False,
                 "action_label": self.action_mapping[action],
                 "entity_id": self.entity_mapping[target]
             }
-        else: #This is where command should be sent to LLM
-            if not action:
-                raise CommandProcessingError("Unrecognized action.")
-            if not target:
-                raise CommandProcessingError("Unrecognized target.")
+
+        # 3. Parse with SLM
+        # TODO: Needs to return entity_id and action_label. If it's easier for the SLM, we could make it output a key from the action_mapping dictionary (like "lock" "unlock")
+        entity_id = self.slm_processor.generate_api_command(command)
+        action_label = "lock/lock"
+        if(action_label and entity_id):
+            print(f"SLM processed command: {entity_id} {action_label}")
+            return {
+                "processed_type": "ha_cmd",
+                "used_slm": True,
+                "action_label": action_label,
+                "entity_id": entity_id
+            }
+
+        if not action:
+            raise CommandProcessingError("Unrecognized action.")
+        if not target:
+            raise CommandProcessingError("Unrecognized target.")
             
 class CommandProcessingError(Exception):
     def __init__(self, message):

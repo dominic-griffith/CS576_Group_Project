@@ -1,7 +1,6 @@
 import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-
 class SLMCommandProcessor:
     def __init__(self, model_name='vincenthuynh/SLM_CS576', device='cpu'):
         # Load the model and tokenizer

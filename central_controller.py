@@ -1,20 +1,14 @@
 import signal
-from dotenv import load_dotenv
 
 from services.service_manager import ServiceManager
 from command_processor import CommandProcessor, CommandProcessingError
 from services.message_service import MessageService
-from slm_command_processor import SLMCommandProcessor
 
 # This file is the central controller for the project, this should run the entire program
-
-# Load environment variables from .env file
-load_dotenv()
 
 # Load core objects
 service_manager = ServiceManager()
 cmd_processor = CommandProcessor()
-slm_processor = SLMCommandProcessor()
 
 # Load services
 service_manager.load_config()
@@ -73,18 +67,6 @@ try:
             # Get the first available message
             message_in = queue.pop(0).lower()
 
-            api_command = slm_processor.generate_api_command(message_in)
-            if api_command:
-                print(f"SLM processed command: {api_command}")
-                if ha_controller:
-                    action_label, entity_id = api_command.split('.')
-                    request_status, request_response_text = ha_controller.make_request(action_label, entity_id)
-                    if request_status:
-                        message_service.send_message(f"SLM successfully executed \"{message_in}\"", message_in)
-                    else:
-                        message_service.send_message(f"HomeAssistant failed to perform the request: {request_response_text}", message_in)
-                continue  # Skip to the next message
-
             # Try to process command, if we can't handle the error that it throws.
             process_result = None
             try:
@@ -100,26 +82,34 @@ try:
                 entity_id = process_result["entity_id"]
 
                 # Debug log message
-                print(f"Making request for action label {action_label} and entity id {entity_id}")
+                print(f"Processed HomeAssistant command {'with SLM' if process_result['used_slm'] else 'manually'} as action label {action_label} and entity id {entity_id}")
 
                 # Make the request for HomeAssistant
                 request_status, request_response_text = True, None
                 if(ha_controller is not None):
-                    request_status, request_response_text = ha_controller.make_request(action_label, entity_id)
+                    try:
+                        request_status, request_response_text = ha_controller.make_request(action_label, entity_id)
+                    except Exception as e:
+                        request_status = False
                 
+                print(f"{'Successfully made' if request_status else 'Failed to make'} request to HomeAssistant. Response: {request_response_text}")
+
                 # Output message to user via message_service
+                return_message = None
                 if(request_status):
-                    message_service.send_message(f"Recieved \"{message_in}\"", message_in)
+                    return_message = f"Recieved \"{message_in}\" and {'the slm' if process_result['used_slm'] else 'manually'} performed {action_label} on {entity_id}"
                 else:
-                    message_service.send_message(f"HomeAssistant failed to perform the request: {request_response_text}", message_in)
+                    return_message = f"HomeAssistant failed to perform the request: {'No response.' if request_response_text is None else request_response_text}"
+
+                message_service.send_message(return_message, message_in)
 
             elif(process_result["processed_type"] == "custom_cmd"):
-                message_service.send_message(f"Recieved command \"{process_result["custom_cmd_label"]}\"", message_in)
+                message_service.send_message(f"Recieved command \"{process_result['custom_cmd_label']}\"", message_in)
                 cmd_exec = process_result["custom_cmd"]()
                 if("msg" in cmd_exec):
                     message_service.send_message(cmd_exec["msg"], message_in)
 
-                print(f"Concluded request for custom command \"{process_result["custom_cmd_label"]}\"")
+                print(f"Concluded request for custom command \"{process_result['custom_cmd_label']}\"")
 
 
 finally:
