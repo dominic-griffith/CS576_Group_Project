@@ -73,6 +73,18 @@ try:
             # Get the first available message
             message_in = queue.pop(0).lower()
 
+            api_command = slm_processor.generate_api_command(message_in)
+            if api_command:
+                print(f"SLM processed command: {api_command}")
+                if ha_controller:
+                    action_label, entity_id = api_command.split('.')
+                    request_status, request_response_text = ha_controller.make_request(action_label, entity_id)
+                    if request_status:
+                        message_service.send_message(f"SLM successfully executed \"{message_in}\"", message_in)
+                    else:
+                        message_service.send_message(f"HomeAssistant failed to perform the request: {request_response_text}", message_in)
+                continue  # Skip to the next message
+
             # Try to process command, if we can't handle the error that it throws.
             process_result = None
             try:
