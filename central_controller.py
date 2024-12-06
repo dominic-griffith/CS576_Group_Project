@@ -24,6 +24,9 @@ if('home_assistant' in service_manager.services.keys()):
 if(ha_controller is None):
     print("WARNING: HomeAssistant hasn't loaded, no requests will be made.")
 
+if('telegram' in service_manager.services.keys()):
+    print("WARNING: Telegram isn't supported, expect broken behavior.")
+
 if(len(service_manager.get_message_services()) == 0):
     service_manager.load_service("command_line")
 
