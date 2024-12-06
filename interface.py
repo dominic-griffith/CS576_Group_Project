@@ -38,13 +38,13 @@ def create_service_tab(parent, service_name):
         # API Key Entry
         ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
         api_key_entry = ttk.Entry(frame, width=50, show="*")
-        api_key_entry.insert(0, config.get("api_key", ""))
+        api_key_entry.insert(0, config.get("api_key", ""))  # Load saved API Key
         api_key_entry.pack(padx=10, pady=5)
 
         # URL Entry
         ttk.Label(frame, text="Service URL:").pack(anchor=tk.W, padx=10)
         url_entry = ttk.Entry(frame, width=50)
-        url_entry.insert(0, config.get("url", ""))
+        url_entry.insert(0, config.get("url", ""))  # Load saved URL
         url_entry.pack(padx=10, pady=5)
 
         def save_ha_config():
@@ -68,13 +68,13 @@ def create_service_tab(parent, service_name):
         # API Key Entry
         ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
         api_key_entry = ttk.Entry(frame, width=50, show="*")
-        api_key_entry.insert(0, config.get("api_key", ""))
+        api_key_entry.insert(0, config.get("api_key", ""))  # Load saved API Key
         api_key_entry.pack(padx=10, pady=5)
 
         # Authorized Users Entry
         ttk.Label(frame, text="Authorized Users (one per line):").pack(anchor=tk.W, padx=10)
         authorized_users_entry = tk.Text(frame, height=10, width=50)
-        authorized_users = "\n".join(config.get("authorized_users", []))
+        authorized_users = "\n".join(config.get("authorized_users", []))  # Load saved users
         authorized_users_entry.insert("1.0", authorized_users)
         authorized_users_entry.pack(padx=10, pady=5)
 
