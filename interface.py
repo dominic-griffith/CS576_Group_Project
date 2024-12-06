@@ -27,26 +27,76 @@ def display_output(message):
     console_output.see(tk.END)
 
 def create_service_tab(parent, service_name):
-    """Create a login tab for a specific service."""
+    """Create a specialized tab for a specific service."""
     frame = ttk.Frame(parent)
-    ttk.Label(frame, text=f"Log in to {service_name}", font=("Arial", 12)).pack(pady=10)
+    ttk.Label(frame, text=f"{service_name} Configuration", font=("Arial", 12)).pack(pady=10)
 
-    ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
-    api_key_entry = ttk.Entry(frame, width=50)
-    api_key_entry.pack(padx=10, pady=5)
+    # Get saved configuration for the service
+    config = service_manager.config["services"].get(service_name, {})
 
-    def save_api_key():
-        """Save the entered API key."""
-        api_key = api_key_entry.get()
-        if api_key.strip():
-            # Save API key to the service manager
-            service_manager.load_service(service_name, api_key)
-            display_output(f"{service_name} API key saved successfully!")
-        else:
-            display_output("API key cannot be empty.")
+    if service_name == "home_assistant":
+        # API Key Entry
+        ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
+        api_key_entry = ttk.Entry(frame, width=50, show="*")
+        api_key_entry.insert(0, config.get("api_key", ""))
+        api_key_entry.pack(padx=10, pady=5)
 
-    ttk.Button(frame, text="Save", command=save_api_key).pack(pady=10)
+        # URL Entry
+        ttk.Label(frame, text="Service URL:").pack(anchor=tk.W, padx=10)
+        url_entry = ttk.Entry(frame, width=50)
+        url_entry.insert(0, config.get("url", ""))
+        url_entry.pack(padx=10, pady=5)
+
+        def save_ha_config():
+            """Save the entered HomeAssistant configuration."""
+            api_key = api_key_entry.get()
+            service_url = url_entry.get()
+            if api_key.strip() and service_url.strip():
+                # Save to service manager
+                service_manager.config["services"]["home_assistant"] = {
+                    "api_key": api_key,
+                    "url": service_url
+                }
+                service_manager.save_config()
+                display_output(f"{service_name} configuration saved successfully!")
+            else:
+                display_output("API key and URL cannot be empty.")
+
+        ttk.Button(frame, text="Save", command=save_ha_config).pack(pady=10)
+
+    elif service_name == "discord":
+        # API Key Entry
+        ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
+        api_key_entry = ttk.Entry(frame, width=50, show="*")
+        api_key_entry.insert(0, config.get("api_key", ""))
+        api_key_entry.pack(padx=10, pady=5)
+
+        # Authorized Users Entry
+        ttk.Label(frame, text="Authorized Users (one per line):").pack(anchor=tk.W, padx=10)
+        authorized_users_entry = tk.Text(frame, height=10, width=50)
+        authorized_users = "\n".join(config.get("authorized_users", []))
+        authorized_users_entry.insert("1.0", authorized_users)
+        authorized_users_entry.pack(padx=10, pady=5)
+
+        def save_discord_config():
+            """Save the entered Discord configuration."""
+            api_key = api_key_entry.get()
+            authorized_users = authorized_users_entry.get("1.0", tk.END).strip().split("\n")
+            if api_key.strip():
+                # Save to service manager
+                service_manager.config["services"]["discord"] = {
+                    "api_key": api_key,
+                    "authorized_users": authorized_users
+                }
+                service_manager.save_config()
+                display_output(f"{service_name} configuration saved successfully!")
+            else:
+                display_output("API key cannot be empty.")
+
+        ttk.Button(frame, text="Save", command=save_discord_config).pack(pady=10)
+
     return frame
+
 
 def create_interface():
     """Create the main interface."""
