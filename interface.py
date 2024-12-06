@@ -37,7 +37,7 @@ def create_service_tab(parent, service_name):
     if service_name == "home_assistant":
         # API Key Entry
         ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
-        api_key_entry = ttk.Entry(frame, width=50, show="*")
+        api_key_entry = ttk.Entry(frame, width=50, show="*")  # Password masking enabled
         api_key_entry.insert(0, config.get("api_key", ""))  # Load saved API Key
         api_key_entry.pack(padx=10, pady=5)
 
@@ -67,7 +67,7 @@ def create_service_tab(parent, service_name):
     elif service_name == "discord":
         # API Key Entry
         ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
-        api_key_entry = ttk.Entry(frame, width=50, show="*")
+        api_key_entry = ttk.Entry(frame, width=50, show="*")  # Password masking enabled
         api_key_entry.insert(0, config.get("api_key", ""))  # Load saved API Key
         api_key_entry.pack(padx=10, pady=5)
 
