@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from services.service_manager import ServiceManager
 from command_processor import CommandProcessor, CommandProcessingError
 from services.message_service import MessageService
+from slm_command_processor import SLMCommandProcessor
 
 # This file is the central controller for the project, this should run the entire program
 
@@ -13,6 +14,7 @@ load_dotenv()
 # Load core objects
 service_manager = ServiceManager()
 cmd_processor = CommandProcessor()
+slm_processor = SLMCommandProcessor()
 
 # Load services
 service_manager.load_config()
