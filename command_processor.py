@@ -1,4 +1,5 @@
 from slm_command_processor import SLMCommandProcessor
+from services.service_manager import ServiceManager
 
 class CommandProcessor:
     """
@@ -10,15 +11,22 @@ class CommandProcessor:
 
     def __init__(self):
         self.slm_processor = SLMCommandProcessor()
+        self.service_manager = ServiceManager()
+
+        self.ha_controller = None
+        if('home_assistant' in self.service_manager.services.keys()):
+            ha_controller = self.service_manager.services["home_assistant"]
+        if(ha_controller is None):
+            print("WARNING: HomeAssistant hasn't loaded, no requests will be made.")
 
         # Dictionary to map target entities to Home Assistant entity IDs
         self.entity_mapping = {
-            "all": "all",
-            # Lock Dictionary
-            "front door": "lock.front_door",
-            "garage door": "lock.garage_door",
-            # Light Dictionary
-            "living room": "light.living_room"
+            # "all": "all",
+            # # Lock Dictionary
+            # "front door": "lock.front_door",
+            # "garage door": "lock.garage_door",
+            # # Light Dictionary
+            # "living room": "light.living_room"
         }
 
         # Dictionary to map actions to Home Assistant services
@@ -33,6 +41,28 @@ class CommandProcessor:
         }
 
         self.custom_commands = {}
+        
+        #Dynamically Add entities to Dictionary
+        self.update_entity_mapping()
+
+    def update_entity_mapping(self):
+        # Make sure Home Assistant is loaded
+        if(self.ha_controller is None):
+            print("WARNING: HomeAssistant hasn't loaded, no requests will be made.")
+        
+        try:
+            json = self.ha_controller.get_all_entities()
+
+            for item in json:
+                entity_id = item["entity_id"]
+                friendly_name = entity_id.split(".")[1]
+                friendly_name = friendly_name.replace("_", " ").lower()
+                self.entity_mapping[friendly_name] = entity_id
+                
+        except Exception as e:
+            print(f"Error: {e}")
+            
+        
     
     def add_to_enity_mapping(self, entity_name, entity_id):
         #Validate the entity_id is valid with HomeAssistant
