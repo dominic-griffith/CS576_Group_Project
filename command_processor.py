@@ -9,15 +9,11 @@ class CommandProcessor:
     Use parse_command to convert command strings.
     """
 
-    def __init__(self):
+    def __init__(self, ha_controller):
         self.slm_processor = SLMCommandProcessor()
-        self.service_manager = ServiceManager()
-
-        self.ha_controller = None
-        if('home_assistant' in self.service_manager.services.keys()):
-            ha_controller = self.service_manager.services["home_assistant"]
+        self.ha_controller = ha_controller
         if(ha_controller is None):
-            print("WARNING: HomeAssistant hasn't loaded, no requests will be made.")
+            print("WARNING: HomeAssistant hasn't loaded, the command processor won't be able to use it.")
 
         # Dictionary to map target entities to Home Assistant entity IDs
         self.entity_mapping = {

@@ -8,7 +8,6 @@ from services.message_service import MessageService
 
 # Load core objects
 service_manager = ServiceManager()
-cmd_processor = CommandProcessor()
 
 # Load services
 service_manager.load_config()
@@ -26,6 +25,8 @@ if('telegram' in service_manager.services.keys()):
 
 if(len(service_manager.get_message_services()) == 0):
     service_manager.load_service("command_line")
+
+cmd_processor = CommandProcessor(ha_controller)
 
 # Create and load custom commands
 def stop_running():
@@ -108,6 +109,7 @@ try:
                 message_service.send_message(return_message, message_in)
 
             elif(process_result["processed_type"] == "custom_cmd"):
+                
                 message_service.send_message(f"Recieved command \"{process_result['custom_cmd_label']}\"", message_in)
                 cmd_exec = process_result["custom_cmd"]()
                 if("msg" in cmd_exec):
