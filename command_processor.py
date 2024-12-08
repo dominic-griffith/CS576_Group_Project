@@ -122,18 +122,6 @@ class CommandProcessor:
                 target = entity
                 break
 
-        # 3. Parse with SLM
-        # TODO: Needs to return entity_id and action_label. If it's easier for the SLM, we could make it output a key from the action_mapping dictionary (like "lock" "unlock")
-        entity_id = self.slm_processor.generate_api_command(command)
-        if(action and entity_id):
-            print(f"SLM entity id {entity_id} and got action {action}")
-            return {
-                "processed_type": "ha_cmd",
-                "used_slm": True,
-                "action_label": self.action_mapping[action],
-                "entity_id": entity_id
-            }
-
         # Successfully processed the command without SLM, return the parse result
         # We want this to happen before the SLM because it is 100% what the user intends to do.
         # That way, if the user's SLM inputs aren't what they want, they can use the consistent commands
@@ -145,6 +133,18 @@ class CommandProcessor:
                 "entity_id": self.entity_mapping[target]
             }
 
+        # 3. Parse with SLM
+        # TODO: Needs to return entity_id and action_label. If it's easier for the SLM, we could make it output a key from the action_mapping dictionary (like "lock" "unlock")
+        entity_id = self.slm_processor.generate_api_command(command)
+        if(action and entity_id):
+            print(f"SLM entity id {entity_id} and got action {action}")
+            return {
+                "processed_type": "ha_cmd",
+                "used_slm": True,
+                "action_label": self.action_mapping[action],
+                "entity_id": entity_id
+            }
+        
         if not action:
             raise CommandProcessingError("Unrecognized action.")
         if not target:

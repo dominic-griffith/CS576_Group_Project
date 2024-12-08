@@ -97,6 +97,7 @@ class DiscordBot(MessageService):
 
 		# Store message metadata for when the program is ready to respond
 		self.message_metadata[msg_content] = user_msg
+		self.last_message = user_msg
 
 		# print message; not necessary, just used to illustrate
 		print(f"Received discord message from {msg_author}: {msg_content}")
@@ -118,7 +119,9 @@ class DiscordBot(MessageService):
 
 	# Send a message back to the discord chat
 	def send_message(self, message, in_response_to):
-		userMessage = self.message_metadata[in_response_to]
+		userMessage = self.last_message
+		if(in_response_to in self.message_metadata):
+			userMessage = self.message_metadata[in_response_to]
 
 		if(userMessage is None):
 			print(f"ERROR: Failed to respond to message \"{in_response_to}\"")
