@@ -3,3 +3,6 @@
 .310env
 __pycache__
 service_manager.json
+pyvenv.cfg
+Lib
+Scripts
