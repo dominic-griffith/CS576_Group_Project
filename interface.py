@@ -79,24 +79,72 @@ class InterfaceManager:
 
     def _create_service_tab(self, parent, service_name):
         frame = ttk.Frame(parent)
-        ttk.Label(frame, text=f"Log in to {service_name.capitalize()}", font=("Calibri", 15)).pack(pady=8)
+        ttk.Label(frame, text=f"{service_name.capitalize()} Configuration", font=("Calibri", 15)).pack(pady=8)
 
-        ttk.Label(frame, text="Insert API Key:").pack(anchor=tk.W, padx=10)
-        api_key_entry = ttk.Entry(frame, width=55)
+        # API Key Entry
+        ttk.Label(frame, text="API Key:").pack(anchor=tk.W, padx=10)
+        api_key_entry = ttk.Entry(frame, width=55, show="*")  # Mask API key
         api_key_entry.pack(padx=10, pady=5)
 
-        def save_api_key():
-            api_key = api_key_entry.get()
-            if api_key.strip():
-                # Save the API key to the ServiceManager's config
-                self.service_manager.config["services"][service_name]["api_key"] = api_key
-                self.service_manager.save_config()
-                print(f"{service_name.capitalize()} API key saved: {api_key}")
-            else:
-                print(f"Error: {service_name.capitalize()} API key cannot be empty.")
+        # Load saved API key
+        saved_config = self.service_manager.config["services"].get(service_name, {})
+        api_key_entry.insert(0, saved_config.get("api_key", ""))
 
-        ttk.Button(frame, text="Save", command=save_api_key).pack(pady=10)
+        if service_name == "home_assistant":
+            # URL Entry for HomeAssistant
+            ttk.Label(frame, text="Service URL:").pack(anchor=tk.W, padx=10)
+            url_entry = ttk.Entry(frame, width=55)
+            url_entry.pack(padx=10, pady=5)
+
+            # Load saved URL
+            url_entry.insert(0, saved_config.get("url", ""))
+
+            def save_ha_config():
+                """Save the HomeAssistant configuration."""
+                api_key = api_key_entry.get()
+                url = url_entry.get()
+                if api_key.strip() and url.strip():
+                    # Save API key and URL
+                    self.service_manager.config["services"][service_name] = {
+                        "api_key": api_key,
+                        "url": url,
+                    }
+                    self.service_manager.save_config()
+                    self.add_console_text(f"{service_name.capitalize()} configuration saved!")
+                else:
+                    self.add_console_text("Error: API key and URL cannot be empty.")
+
+            ttk.Button(frame, text="Save", command=save_ha_config).pack(pady=10)
+
+        elif service_name == "discord":
+            # Authorized Users for Discord
+            ttk.Label(frame, text="Authorized Users (one per line):").pack(anchor=tk.W, padx=10)
+            authorized_users_entry = tk.Text(frame, height=5, width=50)
+            authorized_users_entry.pack(padx=10, pady=5)
+
+            # Load saved authorized users
+            authorized_users = saved_config.get("authorized_users", [])
+            authorized_users_entry.insert("1.0", "\n".join(authorized_users))
+
+            def save_discord_config():
+                """Save the Discord configuration."""
+                api_key = api_key_entry.get()
+                authorized_users = authorized_users_entry.get("1.0", tk.END).strip().split("\n")
+                if api_key.strip() and authorized_users:
+                    # Save API key and authorized users
+                    self.service_manager.config["services"][service_name] = {
+                        "api_key": api_key,
+                        "authorized_users": authorized_users,
+                    }
+                    self.service_manager.save_config()
+                    self.add_console_text(f"{service_name.capitalize()} configuration saved!")
+                else:
+                    self.add_console_text("Error: API key and authorized users cannot be empty.")
+
+            ttk.Button(frame, text="Save", command=save_discord_config).pack(pady=10)
+
         return frame
+
 
     def send_command(self):
         command = self.user_input.get()
