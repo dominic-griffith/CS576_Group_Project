@@ -1,8 +1,10 @@
+import sys
 import signal
 
 from services.service_manager import ServiceManager
 from command_processor import CommandProcessor, CommandProcessingError
 from services.message_service import MessageService
+from interface import InterfaceManager
 
 # This file is the central controller for the project, this should run the entire program
 
@@ -45,6 +47,24 @@ cmd_processor.add_custom_command("exit", stop_running)
 cmd_processor.add_custom_command("listdevices", get_entity_list)
 
 # Start
+# Load interface
+interface = InterfaceManager(service_manager, cmd_processor)
+
+class PrintRedirector:
+    def __init__(self, orig_out, interface):
+        self.orig_out = orig_out
+        self.interface = interface
+
+    def write(self, message):
+        self.interface.console_queue.append(message)
+        self.orig_out.write(message)
+
+    def flush(self):
+        pass
+
+sys.stdout = PrintRedirector(sys.stdout, interface)
+
+# Start program
 print("Starting...")
 
 service_manager.start_services()
@@ -60,6 +80,8 @@ signal.signal(signal.SIGINT, signal_handler)
 try:
     print("Running...")
     while running:
+        interface.update()
+
         # Loop through each message service and check if its queue has pending messages for us to
         #   handle.
         for message_service in service_manager.get_message_services():
