@@ -20,7 +20,7 @@ HomeAssistantHub is a Python-based application that bridges HomeAssistant with D
 1. Clone the repository and make it your working directory:
 
    ```bash
-   git clone https://github.com/yourusername/HomeAssistantHub.git
+   git clone https://github.com/dominic-griffith/CS576_Group_Project.git
    cd HomeAssistantHub
    ```
 
